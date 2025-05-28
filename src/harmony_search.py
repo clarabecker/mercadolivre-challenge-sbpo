@@ -1,63 +1,86 @@
 import random
 import numpy as np
 
-def execute(n, hms, maxIters, hmcr, par):
-    # Inicialização da harmony memory (vetores binários)
-    harmony_memory = np.array([random.randint(0, 1) for _ in range(n)])
+def iniciarHarmonyMemory(n, hms_size, bounds, ofv):
 
-    # Iterações do algoritmo
-    for iter in range(maxIters):
-        # Geração de uma nova harmonia
-        new_harmony = geracao_harmonia(n, harmony_memory, hms, boundary=int(hms * 0.2), hmcr=hmcr, par=par)
+    # matriz, cada linha é uma harmonia e a última coluna é o valor do valor da função objetivo (ofv)
+    harmony_memory = np.zeros((hms_size, n + 1), dtype=float)
 
-        # Avaliação do fitness da nova harmonia
-        new_harmony[-1] = avaliar_fitness(new_harmony[:-1])
+    for i in range(hms_size):
+        # gera uma harmonia aleatória (valores contínuos)
+        harmony_vector = np.array([random.uniform(bounds[j][0], bounds[j][1]) for j in range(n)], dtype=float)
 
-        # Atualização da Harmony Memory
-        harmony_memory = atualizar_harmony_memory(harmony_memory, new_harmony)
+        # atribui o vetor da harmonia e calcula seu fitness
+        harmony_memory[i, :-1] = harmony_vector
+        harmony_memory[i, -1] = ofv(harmony_vector)
 
-        # Exibir a melhor harmonia (melhor solução até agora)
-        print(f"Iteração {iter + 1}: Melhor acurácia = {harmony_memory[0][-1]}")
-        print("Features selecionadas:", harmony_memory[0][:-1])
+    # ordena a memória pela coluna de ofv em ordem decrescente(para maximização)
+    harmony_memory = harmony_memory[harmony_memory[:, -1].argsort()[::-1]]
+    return harmony_memory
 
-    return harmony_memory[0]
 
-def geracao_harmonia(n, harmony_memory, hms, boundary, hmcr, par):
-    new_harmony = []
+def geracaoHarmonia(n, harmony_memory, hmcr, par, bw, bounds):
+    new_harmony = np.zeros(n)
 
     for i in range(n):
         r1 = random.random()
         r2 = random.random()
 
+        # escolhe um valor da harmony_memory
         if r1 < hmcr:
-            # Escolhe um valor da memória de harmonia (HM) com base em probabilidade
-            harmony_index = np.random.randint(hms)  # Índice aleatório
-            new_harmony.append(harmony_memory[harmony_index, i])
+            random_harmony_index = random.randint(0, len(harmony_memory) - 1)
+            harmony_from_memory = harmony_memory[random_harmony_index, :-1]
 
-            # Ajuste de pitch (refinamento do valor)
+            new_harmony[i] = harmony_from_memory[i]
+            # ajuste de tom (refinamento do valor)
             if r2 < par:
-                new_harmony[-1] = 1 - new_harmony[-1]
+                if random.random() < 0.5:
+                    new_harmony[i] += random.random() * bw
+                else:
+                    new_harmony[i] -= random.random() * bw
+
+                # valor dentro dos limites
+                LB_i, UB_i = bounds[i]
+                new_harmony[i] = max(LB_i, min(UB_i, new_harmony[i]))
         else:
-            # Se não escolher da memória, gera aleatoriamente
-            new_harmony.append(random.randint(0, 1))
+            # gera valor aleatório
+            LB_i, UB_i = bounds[i]
+            new_harmony[i] = random.uniform(LB_i, UB_i)
 
-    # Adiciona um espaço para o valor de fitness (que será calculado depois)
-    new_harmony.append(0.0)
-    return np.array(new_harmony)
+    return new_harmony
 
-def avaliar_fitness(harmony):
-    # Simulação do cálculo de fitness (por enquanto apenas retornando um valor aleatório)
-    # Aqui você pode colocar o código que calcula a acurácia, por exemplo.
-    return random.random()
+def atualizarHarmonyMemory(harmony_memory, new_harmony, ofv):
+    # avalia a harmonia (calcula nova função objetivo -fazer-)
+    new_ofv = ofv(new_harmony)
 
-def atualizar_harmony_memory(harmony_memory, new_harmony):
-    # Adiciona a nova harmonia à memória
-    harmony_memory = np.vstack([harmony_memory, new_harmony])
+    # combina o vetor da harmonia com ofv
+    new_harmony_avaliado = np.append(new_harmony, new_ofv)
 
-    # Ordena a memória com base no fitness (última coluna) e mantém as melhores soluções
-    harmony_memory = sorted(harmony_memory, key=lambda x: x[-1], reverse=True)
+    if new_ofv > harmony_memory[-1, -1]:
+        harmony_memory[-1] = new_harmony_avaliado
 
-    # Remove o pior (último da lista)
-    harmony_memory = np.array(harmony_memory[:-1])
+        harmony_memory = harmony_memory[harmony_memory[:, -1].argsort()[::-1]]
 
     return harmony_memory
+
+# looping principal do algoritmo
+def execute(n, bounds, hms, maxIters, hmcr, par, bw, ofv):
+    harmony_memory = iniciarHarmonyMemory(n, hms, bounds, ofv)
+    best_harmony = harmony_memory[0, :-1].copy()
+    best_avaliacao = harmony_memory[0, -1]
+
+    for t in range(maxIters):
+        new_harmony = geracaoHarmonia(n, harmony_memory, hmcr, par, bw, bounds)
+
+        harmony_memory = atualizarHarmonyMemory(harmony_memory, new_harmony, ofv)
+
+        if harmony_memory[0, -1] > best_ofv:
+            best_ofv = harmony_memory[0, -1]
+            best_harmony = harmony_memory[0, :-1].copy()
+
+    return {
+        'solution': best_harmony,
+        'of': best_ofv
+    }
+
+
