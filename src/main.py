@@ -1,7 +1,7 @@
 import argparse
 import random
 
-from src import harmony_search
+import harmony_search
 
 def run(inst, seed=0, maxIters=200, n=10, bounds=10,  hms=100, hmcr=0.9, par=0.1, bw=0.9):
     random.seed(seed)

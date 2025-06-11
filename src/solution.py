@@ -1,3 +1,29 @@
-#função para gerar nova solução
+from random import shuffle
 
-def solution():
+class Solution:
+    # Representation
+    x = None  #lista que armazena quais pedidos são escolhidos
+    y = None #lista que armazena quais corredores são escolhidos
+    lb = None
+    ub = None
+
+    #Auxiliary structures
+
+    def __ini__(self, I, S = None):
+        self.I = I
+
+        if S is not None:
+            self.x = S.x.copy()
+            self.y = S.y.copy()
+
+            self.lb = S.lb.copy()
+            self.ub = S.ub.copy()
+
+        else:
+            self.x = len(I.orders)
+            self.y = len(I.aisles)
+
+            self.lb = I.wave_size_lb
+            self.ub = I.wave_size_lb
+
+
