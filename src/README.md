@@ -5,7 +5,8 @@
 + No parâmetro "--instance" deve ser passado a pasta de destino das instâncias "a" ou "b" + "/" nome da instância desejada. Exemplo:
 
 ```bash
-python3 main.py --instance a/instance_0003.txt 
+python3 main.py --instance a/instance_0003.txt
+```
 
 ## Parâmetros default 
 
@@ -18,4 +19,4 @@ python3 main.py --instance a/instance_0003.txt
 
 ```bash
 python3 main.py --instance a/instance_0003.txt --maxIters 5000 --hms 200 --hmcr 0.7 --par 0.3
-
+```
