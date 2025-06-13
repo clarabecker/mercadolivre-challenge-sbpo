@@ -1,4 +1,4 @@
-from random import shuffle
+from random import shuffle, random
 
 class Solution:
     # Representation
@@ -7,23 +7,19 @@ class Solution:
     lb = None
     ub = None
 
-    #Auxiliary structures
+    #Auxiliary structures --> Nao tem
 
-    def __ini__(self, I, S = None):
+    def __init__(self, I, S = None):
         self.I = I
 
         if S is not None:
             self.x = S.x.copy()
             self.y = S.y.copy()
-
             self.lb = S.lb.copy()
             self.ub = S.ub.copy()
-
         else:
-            self.x = len(I.orders)
-            self.y = len(I.aisles)
-
+            self.x = [0] * len(I.orders)
+            self.y = [0] * len(I.aisles)
             self.lb = I.wave_size_lb
-            self.ub = I.wave_size_lb
-
+            self.ub = I.wave_size_ub
 

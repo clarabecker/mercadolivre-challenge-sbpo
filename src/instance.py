@@ -37,6 +37,10 @@ class Instance:
             self.wave_size_ub = int(bounds[1])
 
     def objective_fun(self, selected_orders):
+
+        if not self.waveLimits(selected_orders):
+            return 0
+
         total_order = 0          #Soma total das unidades
         total_aisles = set()     #Indices dos corredores
 
@@ -54,7 +58,16 @@ class Instance:
         if not total_aisles: #Evitar divisão por 0
             return 0
 
+
+
         return total_order / len(total_aisles)
 
+    def waveLimits(self, selected_orders): #Restricoes LB e UB
+        total_units = 0
 
+        for o in selected_orders:
+            order = self.orders[o]  #dicionário {item: quantidade}
+            total_units += sum(order.values())
+
+        return self.wave_size_lb <= total_units <= self.wave_size_ub
 
