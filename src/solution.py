@@ -59,12 +59,12 @@ class Solution:
 
     def solucao_viavel(self):
         total = 0
-
         for a in range(len(self.I.aisles)):
             if self.y[a] == 1:
                 for o in range(len(self.I.orders)):
-                    if self.x[o] == 1 and o in self.I.order_aisles[o]:
+                    if self.x[o] == 1 and a in self.I.order_aisles[o]:
                         total += self.I.u[a][o]
+
         return self.lb <= total <= self.ub
 
     def aisles_storage(self):

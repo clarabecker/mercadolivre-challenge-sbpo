@@ -62,4 +62,4 @@ class Instance:
                 u[a_idx][o_idx] = total
 
         self.u = u
-    
+
