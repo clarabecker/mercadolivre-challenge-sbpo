@@ -8,16 +8,14 @@ restrições.
 
 ## Harmony Search
 
-![image](https://github.com/user-attachments/assets/d469a7fb-16c9-48a9-964c-93f709165310)
+![image](https://github.com/user-attachments/assets/a8828d7a-9c7d-4e8f-b97d-1e9dcd23551b)
 
 O Harmony Search (HS) é um algoritmo baseado em população, inspirado na improvisação de músicos. Onde a solução é representada por uma harmonia. O algorimo possui os seguintes passos: 
 
 **1. Inicialição dos parâmetros:**
 + Dimensão da variável N;
-+ Limites inferior e superior do domínio de busca (LB, UB);
 + Harmony Memory Considering Rate (HMCR);
 + Pitch Adjusting Rate (PAR);
-+ Bandwidth (bw).
   
 **2. Inicialização da Harmony Memory:**
 Matriz (N*HMS), cujo valor inicial consiste em N vetores aleatórios entre os limiter inferior e superios (LB, UB) do domínio de busca do problema. 
