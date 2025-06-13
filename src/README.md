@@ -1,4 +1,4 @@
-## Execução do algoritmo 
+# Execução do algoritmo 
 
 + Para execução do algoritmo a pasta src deve ser aberta no terminal. 
 + O script "main.py" deve ser executado
@@ -8,7 +8,7 @@
 python3 main.py --instance a/instance_0003.txt
 ```
 
-## Parâmetros default 
+# Valor default dos parâmetros
 
 + seed = 0
 + Tamanho da Harmony Memory: hms = 100
