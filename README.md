@@ -26,6 +26,7 @@ Os primeiros parâmetros são relacionados a Harmony Memory (HM) que armazena as
 O algoritmo começa criando um conjunto inicial de soluções. Cada solução passa por uma avaliação, segundo cálculo da função objetivo. As soluções armazenadas na HM, são ordenadas, no caso de maximização da maior para menor. 
 
 **3. Improvisação de Nova Harmonia:**
+
 Uma nova solução candidata é criada com base nas soluções existentes na HM e na aleatoriedade. Para cada elemento da solução o algoritmo usa um valor de uma das soluções existentes na HM, com base no parâmetro HMCR ou aleatoriedade. Após a criação, a qualidade da nova harmonia também é calculada através da função objetivo. 
 
 **4. Atualização da Harmony Memory:**
