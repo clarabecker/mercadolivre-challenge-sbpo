@@ -8,26 +8,28 @@ restrições.
 
 ## Harmony Search
 
-![image](https://github.com/user-attachments/assets/a8828d7a-9c7d-4e8f-b97d-1e9dcd23551b)
-
 O Harmony Search (HS) é um algoritmo baseado em população, inspirado na improvisação de músicos. Onde a solução é representada por uma harmonia. O algorimo possui os seguintes passos: 
+
+![image](https://github.com/user-attachments/assets/a8828d7a-9c7d-4e8f-b97d-1e9dcd23551b)
 
 **1. Inicialição dos parâmetros:**
 + Dimensão da variável N;
++ Harmony Memory Size (HMS);
++ Número Máximo de Iterações (maxIters);
 + Harmony Memory Considering Rate (HMCR);
 + Pitch Adjusting Rate (PAR);
+
+Os primeiros parâmetros são relacionados a Harmony Memory (HM) que armazena as melhores soluções encontradas até a iteração atual. O HMS é o número de soluções armazenadas na Harmony Memory. O HMCR é a probabilidade de escolha dos valores das soluções armazenadas na memória, determina a frequência com que o algoritmo se baseia nas soluções existentes na memória para criar outra solução. O PAR é a probabilidade de ajuste de um valor escolhido presenta na memória, semelhante a ajustar o tom de uma nota musical. 
   
 **2. Inicialização da Harmony Memory:**
-Matriz (N*HMS), cujo valor inicial consiste em N vetores aleatórios entre os limiter inferior e superios (LB, UB) do domínio de busca do problema. 
 
-Os primeiros parâmetros são relacionados a Harmony Memory (HS) que armazena as melhores soluções encontradas até a iteração atual. O HMS é o número de soluções armazenadas na Harmony Memory. O HMCR é a probabilidade de escolha dos valores das soluções armazenadas na memória.
-O PAR é a probabilidade de ajuste de um valor escolhido presenta na memória, semelhante a ajustar o tom de uma nota musical. O bw controla a intensidade do auste do tom, define o quão longe o novo valor pode estar do antigo. 
+O algoritmo começa criando um conjunto inicial de soluções. Cada solução passa por uma avaliação, segundo cálculo da função objetivo. As soluções armazenadas na HM, são ordenadas, no caso de maximização da maior para menor. 
 
 **3. Improvisação de Nova Harmonia:**
-Uma nova harmonia (xnew) é gerada com base no parâmetros (HMCR), taxa de ajuste de tom (PR) e uma escolha aleatória. Um novo valor de r1 pertencente (0,1) é gerado, ele é comparado com o HMCR. Se r1 < HMCR, cada componente da nova harmonia é ecolhido aleatoriamente a partir da Harmony Memory. Um novo número alatório r2 pertencente (0,1) é gerado, se r2 < PAR o componente escolhido na etapa anterior pe ajustado de acordo com bw. 
+Uma nova solução candidata é criada com base nas soluções existentes na HM e na aleatoriedade. Para cada elemento da solução o algoritmo usa um valor de uma das soluções existentes na HM, com base no parâmetro HMCR ou aleatoriedade. Após a criação, a qualidade da nova harmonia também é calculada através da função objetivo. 
 
 **4. Atualização da Harmony Memory:**
-Se o valor de adequação da nova harmonia (xnew) for melhor do que o valor de adequação da pior harmonia (xworst) na HM, a pior solução na HM será substituida pela nova harmonia. 
+A nova harmonia é comparada com a pior harmonia na HM. Se a nova harmonia gerada é melhor, ela substitui a pior na memória. 
 
 **5. Verificação do critério de parada:**
-Se o número da iteração atual (t) for menor que o número máximo de iteraçõs, então os passos 3 e 4 são repetidos. Caso contrário o algoritmo para. 
+Se o número da iteração atual for menor que o número máximo de iteraçõs, então os passos 3 e 4 são repetidos. Caso contrário o algoritmo para. 
