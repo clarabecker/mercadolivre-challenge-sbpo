@@ -48,6 +48,7 @@ class Instance:
                         break
             self.order_aisles.append(list(aisles_for_order))
 
+
     def criar_matriz_u(self):
         num_aisles = len(self.aisles)
         num_orders = len(self.orders)
@@ -58,7 +59,7 @@ class Instance:
                 total = 0
                 for item, qty in order.items():
                     if item in aisle:
-                        total += qty
+                        total += min(qty, aisle[item])
                 u[a_idx][o_idx] = total
 
         self.u = u

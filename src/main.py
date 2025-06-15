@@ -1,18 +1,18 @@
 import argparse
 import random
 import functools
+from pathlib import Path
+from instance import Instance
+from solution import Solution
 from harmony_search import execute
 from avaliacao import avaliar_harmonia
-from instance import Instance
-from pathlib import Path  # 1. Importar a classe Path
 
 if __name__ == '__main__':
     SCRIPT_DIR = Path(__file__).parent
     BASE_INSTANCES_DIR = SCRIPT_DIR / '..' / 'instances'
 
     parser = argparse.ArgumentParser(description='Parâmetros Harmony Search.')
-    parser.add_argument('--instance', type=str, required=True,
-                        help='Caminho da instância a partir da pasta "instances" (ex: a/instance_0003.txt)')
+    parser.add_argument('--instance', type=str, required=True, help='Caminho da instância')
     parser.add_argument('--seed', type=int, default=0, help='Seed')
     parser.add_argument('--hms', type=int, default=100, help='Tamanho da Harmony Memory')
     parser.add_argument('--maxIters', type=int, default=200, help='Número de iterações')
@@ -21,17 +21,21 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     full_instance_path = BASE_INSTANCES_DIR / args.instance
-
     instance = Instance(full_instance_path)
+    random.seed(args.seed)
 
-    # Dimensão da solução do vetor no algortimo de busca Harmony Search
+    # Define dimensão n do algoritmo HS
     n_pedidos = len(instance.orders)
     n_corredores = len(instance.aisles)
     n = n_pedidos + n_corredores
-
-    random.seed(args.seed)
-
     ofv = functools.partial(avaliar_harmonia, instance=instance)
+
+    # Vetor de solução conforme dimensão definida
+    def construtor_de_solucao():
+        sol = Solution(instance)
+        sol.construcao_inicial()
+
+        return sol.x + sol.y
 
     sol = execute(
         n=n,
@@ -39,7 +43,8 @@ if __name__ == '__main__':
         maxIters=args.maxIters,
         hmcr=args.hmcr,
         par=args.par,
-        ofv=ofv
+        ofv=ofv,
+        construtor_solucao=construtor_de_solucao
     )
 
-    print(sol['of'])
+    print(f"{sol['of']}")

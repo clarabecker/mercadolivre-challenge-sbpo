@@ -1,22 +1,17 @@
 from solution import Solution
 
-
-# Em avaliacao.py
-
 def avaliar_harmonia(harmony_vector, instance):
-    # ... (código anterior para definir x e y) ...
-    x = [int(val) for val in harmony_vector[:len(instance.orders)]]
-    y = [int(val) for val in harmony_vector[len(instance.orders):]]
 
     sol = Solution(instance)
-    sol.x = x
-    sol.y = y
+    sol.x = [int(val) for val in harmony_vector[:len(instance.orders)]]
 
-    viavel = sol.solucao_viavel()
-    armazenamento_ok = sol.aisles_storage()
+    sol.y = [0] * len(instance.aisles)
+    for o, is_selected in enumerate(sol.x):
+        if is_selected:
+            for aisle_index in instance.order_aisles[o]:
+                sol.y[aisle_index] = 1
 
-    if viavel and armazenamento_ok:
-        ofv = sol.calculate_ofv()
-        return ofv
-    else:
+    if not sol.verificacao_solucao():
         return -float('inf')
+
+    return sol.calculo_ofv()
