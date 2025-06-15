@@ -25,3 +25,14 @@ python3 main.py --instance a/instance_0003.txt --maxIters 5000 --hms 200 --hmcr 
 ## Heurística Construtiva
 
 Através de múltiplas tentativas (1000), o componente seleciona um tamanho aleatório para a o tamanho da onda, dentro dos limites mínimo e máximo. A seleção do tamanho da onda é feita para garantir a restrição dos limites. A lista dos candidatos é "embaralhada". A heurística construtiva itera sobre a lista de pedidos candidatos e tenta adicionar um por um. É verificada a viabilidade do pedido, se o estoque nos corredores selecionados é suficiente. Se esta condição for verdadeira o pedido é adicionado na solução, caso contrário itera para o próximo candidato na lista. A construção termina quando atingir o tamanho escolhido para onda ou esgotar o número de candidatos. Devido ao caso da última alternativa, é feita uma última verificação, se os pedidos adicionados respeitam o número mínimo. 
+
+## Geração de Nova Harmonia 
+
+A estratégia de geração consiste nos seguintes passos: geração de um número aleatório (r1), se este for menor que o parâmetros HMCR o algoritmo busca na Harmony Memory (HM) elementos que foram utilizados em boas soluções já existentes. Se a HM é considerada, é realizado um ajustem de tom segundo parâmetro PAR.
+
+Se novo número aleatório gerado (r2) é menor que PAR, o ajuste é um "flip" de bit, o valor é invertido. Isso funciona como pequena perturbação, explorando a vizinhança das soluções presenter na HM. 
+
+Caso contrário o algoritmo seleciona um elemento aleatório diferente, sem considerar HM. 
+
+
+
