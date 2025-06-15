@@ -24,7 +24,7 @@ python3 main.py --instance a/instance_0003.txt --maxIters 5000 --hms 200 --hmcr 
 ```
 ## Heurística Construtiva
 
-Através de múltiplas tentativas (1000), o componente seleciona um tamanho aleatório para a o tamanho da onda, dentro dos limites mínimo e máximo. A seleção do tamanho da onda é feita para garantir a restrição dos limites. A lista dos candidatos é "embaralhada". 
+Através de múltiplas tentativas (1000), o componente seleciona um tamanho aleatório para a o tamanho da wave, dentro dos limites mínimo e máximo. A seleção do tamanho da wave é feita para garantir a restrição dos limites. A lista dos candidatos é "embaralhada". 
 
 A heurística construtiva itera sobre a lista de pedidos candidatos e tenta adicionar um por um. É verificada a viabilidade do pedido, se o estoque nos corredores selecionados é suficiente. 
 
