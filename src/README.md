@@ -24,11 +24,7 @@ python3 main.py --instance a/instance_0003.txt --maxIters 5000 --hms 200 --hmcr 
 ```
 ## Heurística Construtiva
 
-Através de múltiplas tentativas (1000), o componente seleciona um tamanho aleatório para a o tamanho da wave, dentro dos limites mínimo e máximo. A seleção do tamanho da wave é feita para garantir a restrição dos limites. A lista dos candidatos é "embaralhada". 
-
-A heurística construtiva itera sobre a lista de pedidos candidatos e tenta adicionar um por um. É verificada a viabilidade do pedido, se o estoque nos corredores selecionados é suficiente. 
-
-Se esta condição for verdadeira o pedido é adicionado na solução, caso contrário itera para o próximo candidato na lista. A construção termina quando atingir o tamanho escolhido para onda ou esgotar o número de candidatos. Devido ao caso da última alternativa, é feita uma última verificação, se os pedidos adicionados respeitam o número mínimo. 
+A construção  possui um tamanho alvo da wave, valor aleatório que respeita os limites mínimos e máximos. Primeiro a construção tenta adicionar os pedidos que exigem menos corredores, para isso a lista de pedidos candidatos é ordenada conforme corredores associados ao pedido. A wave é construida iterativamente, sempre verificando a restrição de armazenamento dos corredores. Se a restrição for violada, a adição do pedido é desfeita. Os corredores necessários por esse pedido que antes eram abrangidos pela solução, não são mais utilizados. 
 
 ## Geração de Nova Harmonia 
 
