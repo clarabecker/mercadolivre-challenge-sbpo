@@ -29,10 +29,10 @@ class Solution:
         self.x = [0] * len(self.I.orders)
         self.y = [0] * len(self.I.aisles)
 
-        # Tamanho da onda a ser montada
+        # tamanho da wave dentro dos limites
         tamanho_wave = random.randint(lb, ub)
 
-        # Ordena os pedidos com menos corredores primeiro (heurística gulosa)
+        #ordena os pedidos com menos corredores
         pedidos_candidatos = list(range(num_pedidos))
         pedidos_candidatos.sort(key=lambda p: len(self.I.order_aisles[p]))
 
@@ -44,12 +44,14 @@ class Solution:
 
             self.x[pedido_candidato] = 1
 
+            #mapeia os corredores necessários para o pedido
             corredores_necessarios = []
             for a in self.I.order_aisles[pedido_candidato]:
                 if self.y[a] == 0:
                     self.y[a] = 1
                     corredores_necessarios.append(a)
 
+            #se viola a restrição de armazenamento pedido é retirado da solução
             if self.armazenamento_suficiente():
                 pedidos_adicionados += 1
             else:
