@@ -34,7 +34,7 @@ Se esta condição for verdadeira o pedido é adicionado na solução, caso cont
 
 A estratégia de geração consiste nos seguintes passos: geração de um número aleatório (r1), se este for menor que o parâmetros HMCR o algoritmo busca na Harmony Memory (HM) elementos que foram utilizados em boas soluções já existentes. Se a HM é considerada, é realizado um ajustem de tom segundo parâmetro PAR.
 
-Se novo número aleatório gerado (r2) é menor que PAR, o ajuste é um "flip" de bit, o valor é invertido. Isso funciona como pequena perturbação, explorando a vizinhança das soluções presenter na HM. 
+Se novo número aleatório gerado (r2) é menor que PAR, o ajuste é um "flip" de bit, o valor é invertido. Isso funciona como pequena perturbação, explorando a vizinhança das soluções presentes na HM. 
 
 Caso contrário o algoritmo seleciona um elemento aleatório diferente, sem considerar HM. 
 
