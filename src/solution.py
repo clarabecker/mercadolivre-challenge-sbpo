@@ -21,52 +21,44 @@ class Solution:
             self.lb = I.wave_size_lb
             self.ub = I.wave_size_ub
 
-    def construcao_inicial(self, max_tentativas=1000):
+    def construcao_inicial(self):
         num_pedidos = len(self.I.orders)
         lb = min(self.lb, num_pedidos)
         ub = min(self.ub, num_pedidos)
 
-        for _ in range(max_tentativas):
-            self.x = [0] * len(self.I.orders)
-            self.y = [0] * len(self.I.aisles)
+        self.x = [0] * len(self.I.orders)
+        self.y = [0] * len(self.I.aisles)
 
-            try:
-                #geração do tamanho da onda respeitando limites
-                wave_size_target = random.sample(range(lb, ub + 1), 1)[0]
-            except ValueError:
-                continue
+        # Tamanho da onda a ser montada
+        tamanho_wave = random.randint(lb, ub)
 
-            pedidos_candidatos = list(range(num_pedidos))
-            random.shuffle(pedidos_candidatos)
+        # Ordena os pedidos com menos corredores primeiro (heurística gulosa)
+        pedidos_candidatos = list(range(num_pedidos))
+        pedidos_candidatos.sort(key=lambda p: len(self.I.order_aisles[p]))
 
-            pedidos_adicionados = 0
+        pedidos_adicionados = 0
 
-            while pedidos_adicionados < wave_size_target and pedidos_candidatos:
-                pedido_candidato = pedidos_candidatos.pop(0)
+        for pedido_candidato in pedidos_candidatos:
+            if pedidos_adicionados >= tamanho_wave:
+                break
 
-                self.x[pedido_candidato] = 1
+            self.x[pedido_candidato] = 1
 
-                #procura corredores necessários
-                for a in self.I.order_aisles[pedido_candidato]:
+            corredores_necessarios = []
+            for a in self.I.order_aisles[pedido_candidato]:
+                if self.y[a] == 0:
                     self.y[a] = 1
+                    corredores_necessarios.append(a)
 
-                #respeita restrição de armazenamento
-                if self.armazenamento_suficiente():
-                    pedidos_adicionados += 1
-                else:
-                    self.x[pedido_candidato] = 0
+            if self.armazenamento_suficiente():
+                pedidos_adicionados += 1
+            else:
+                self.x[pedido_candidato] = 0
+                for a in corredores_necessarios:
+                    self.y[a] = 0
 
-                    self.y = [0] * len(self.I.aisles)
-                    for o_idx, o_val in enumerate(self.x):
-                        if o_val == 1:
-                            for a_idx in self.I.order_aisles[o_idx]:
-                                self.y[a_idx] = 1
-
-            #ultima verificação, no caso de todos os candidatos explorados
-            if pedidos_adicionados >= lb:
-                return
-
-        raise Exception("Sem solução viável.")
+        if pedidos_adicionados < lb:
+            raise Exception("Sem solução viável.")
 
     def armazenamento_suficiente(self):
 

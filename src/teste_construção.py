@@ -2,7 +2,6 @@ from solution import Solution
 from instance import Instance
 import os
 
-# Caminho relativo da instância
 instance_file = os.path.join("..", "instances", "a", "instance_0001.txt")
 
 inst = Instance(instance_file)
