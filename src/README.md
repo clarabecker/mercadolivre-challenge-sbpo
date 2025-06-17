@@ -14,7 +14,7 @@ python3 main.py --instance a/instance_0003.txt
 
 + seed = 0
 + Tamanho da Harmony Memory: hms = 100
-+ Número de Iterações: maxIters = 200
++ Número de Iterações: maxIters = 1000
 + Taxa de consideração da Harmony Memory: hmcr = 0.9
 + Taxa de ajuste de tom: par = 0.1
 + Para passar parâmetros específicos usar "--" e nome do parâmetro. Exemplo:
