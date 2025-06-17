@@ -48,7 +48,6 @@ class Instance:
                         break
             self.order_aisles.append(list(aisles_for_order))
 
-
     def criar_matriz_u(self):
         num_aisles = len(self.aisles)
         num_orders = len(self.orders)

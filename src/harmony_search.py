@@ -32,6 +32,7 @@ def geracao_harmonia(n, harmony_memory, hmcr, par):
                 new_harmony[i] = 1 - new_harmony[i]
         else:
             new_harmony[i] = random.choice([0, 1])
+    # fazer procedimento de reparação, exemplo, selecionar mais corredores
 
     return new_harmony
 
