@@ -1,6 +1,8 @@
 import argparse
 import random
 import functools
+import subprocess
+import numpy as np
 from pathlib import Path
 from instance import Instance
 from solution import Solution
@@ -48,4 +50,24 @@ if __name__ == '__main__':
         construtor_solucao=construtor_de_solucao
     )
 
-    print(f"{sol['of']}")
+    print(f"Validando solução")
+
+    # Salvar solução para checker
+    output_path = SCRIPT_DIR / 'output.txt'
+    sol.salvar_solucao_em_arquivo(np.concatenate([sol.x, sol.y]), n_pedidos, n_corredores, output_path)
+
+
+    def rodar_checker(input_file, output_file):
+        result = subprocess.run(
+            ['python', 'checker.py', input_file, output_file],
+            capture_output=True,
+            text=True
+        )
+        print(result.stdout)
+        if result.returncode != 0:
+            print("Checker terminou com erro:")
+            print(result.stderr)
+
+
+    # Depois de gerar o output.txt:
+    rodar_checker(str(full_instance_path), str(output_path))
