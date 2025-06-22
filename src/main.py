@@ -49,6 +49,20 @@ if __name__ == '__main__':
         ofv=ofv,
         construtor_solucao=construtor_de_solucao
     )
+    sol = execute(
+        n=n,
+        hms=args.hms,
+        maxIters=args.maxIters,
+        hmcr=args.hmcr,
+        par=args.par,
+        ofv=ofv,
+        construtor_solucao=construtor_de_solucao
+    )
+
+    vetor_solucao = np.concatenate([sol.x, sol.y])
+    valor_ofv = ofv(vetor_solucao)
+
+    print(f"Valor da função objetivo (OFV): {valor_ofv}")
 
     print(f"Validando solução")
 
@@ -56,10 +70,9 @@ if __name__ == '__main__':
     output_path = SCRIPT_DIR / 'output.txt'
     sol.salvar_solucao_em_arquivo(np.concatenate([sol.x, sol.y]), n_pedidos, n_corredores, output_path)
 
-
     def rodar_checker(input_file, output_file):
         result = subprocess.run(
-            ['python', 'checker.py', input_file, output_file],
+            ['python3', 'checker.py', input_file, output_file],
             capture_output=True,
             text=True
         )
