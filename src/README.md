@@ -34,5 +34,9 @@ Se novo número aleatório gerado (r2) é menor que PAR, o ajuste é um "flip" d
 
 Caso contrário o algoritmo seleciona um elemento aleatório diferente, sem considerar HM. 
 
+## Estratégia de reparação da solução
+
+A estratégia de reparação cria uma solução temporária separando o vetor de harmonia, se o número de pedidos selecionados for menor que o número mínimo de pedidos, o algoritmo entra em um looping para adição de candidatos que ainda não estão na solução. Sempre verificando a viabilidade da solução com o pedido adicionado. Após isso, ele entra em um segundo looping para garantir que o número de pedidos não ultrapasse o limite máximo, tentando remover candidatos mantendo a viabilidade da solução. No final do método de reparação a solução é verficada novamente, se ainda não é viável é chamada a construção gulosa para nova solução. 
+
 
 
