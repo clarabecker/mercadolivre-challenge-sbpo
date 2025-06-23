@@ -1,5 +1,8 @@
 import random
 
+import numpy as np
+
+
 class Solution:
     def __init__(self, I, S=None):
         self.I = I
@@ -47,7 +50,7 @@ class Solution:
                 break
 
         if total_unidades < self.lb:
-            raise Exception("Sem solução viável inicial com os limites de unidades.")
+            raise Exception("Sem solução viável inicial.")
 
     def armazenamento_suficiente(self):
         itens_pedidos = set()
@@ -82,18 +85,17 @@ class Solution:
         return True
 
     def calculo_ofv(self):
-        numerador = 0
-        denominador = sum(self.y)
+        total_unidades = 0
+        pedidos = [i for i, v in enumerate(self.x) if v == 1]
+        corredores = [i for i, v in enumerate(self.y) if v == 1]
 
-        if denominador == 0:
+        for o in pedidos:
+            total_unidades += sum(self.I.orders[o].values())
+
+        if len(corredores) == 0:
             return 0
 
-        for o, pedidos_selecionados in enumerate(self.x):
-            if pedidos_selecionados:
-                for a in self.I.order_aisles[o]:
-                    numerador += self.I.u[a][o]
-
-        return numerador / denominador
+        return total_unidades / len(corredores)
 
     def atualizar_corredores(self):
         self.y = [0] * len(self.y)
@@ -101,6 +103,7 @@ class Solution:
             if pedido_ativo == 1:
                 for corredor in self.I.order_aisles[i]:
                     self.y[corredor] = 1
+
 
     def get_pedidos_ativos(self):
         return [i for i, v in enumerate(self.x) if v == 1]

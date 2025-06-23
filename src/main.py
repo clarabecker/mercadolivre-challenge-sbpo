@@ -49,20 +49,14 @@ if __name__ == '__main__':
         ofv=ofv,
         construtor_solucao=construtor_de_solucao
     )
-    sol = execute(
-        n=n,
-        hms=args.hms,
-        maxIters=args.maxIters,
-        hmcr=args.hmcr,
-        par=args.par,
-        ofv=ofv,
-        construtor_solucao=construtor_de_solucao
-    )
 
-    vetor_solucao = np.concatenate([sol.x, sol.y])
-    valor_ofv = ofv(vetor_solucao)
+    # Pega os índices dos pedidos e corredores ativos
+    pedidos = [i for i, v in enumerate(sol.x) if v == 1]
+    corredores = [i for i, v in enumerate(sol.y) if v == 1]
 
-    print(f"Valor da função objetivo (OFV): {valor_ofv}")
+    ofv_1 = sol.calculo_ofv()
+
+    print("Função Objetivo:", ofv_1)
 
     print(f"Validando solução")
 
@@ -82,5 +76,8 @@ if __name__ == '__main__':
             print(result.stderr)
 
 
-    # Depois de gerar o output.txt:
     rodar_checker(str(full_instance_path), str(output_path))
+
+
+
+
