@@ -27,13 +27,13 @@ if __name__ == '__main__':
     instance = Instance(full_instance_path)
     random.seed(args.seed)
 
-    # Define dimensão n do algoritmo HS
+    #define dimensão n do algoritmo
     n_pedidos = len(instance.orders)
     n_corredores = len(instance.aisles)
     n = n_pedidos + n_corredores
     ofv = functools.partial(avaliar_harmonia, instance=instance)
 
-    # Vetor de solução conforme dimensão definida
+    #vetor de solução conforme dimensão definida
     def construtor_de_solucao():
         sol = Solution(instance)
         sol.construcao_inicial()
@@ -60,7 +60,6 @@ if __name__ == '__main__':
 
     print(f"Validando solução")
 
-    # Salvar solução para checker
     output_path = SCRIPT_DIR / 'output.txt'
     sol.salvar_solucao_em_arquivo(np.concatenate([sol.x, sol.y]), n_pedidos, n_corredores, output_path)
 

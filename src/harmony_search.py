@@ -62,7 +62,7 @@ def reparar_harmonia(harmony, instance):
         sol.x[i] = 0
     sol.atualizar_corredores()
 
-    # Tenta incluir pedidos viáveis, priorizando os de menor custo em corredores
+    #tenta incluir pedidos viáveis, priorizando os de menor custo em corredores
     pedidos = list(range(n_pedidos))
     random.shuffle(pedidos)
 
