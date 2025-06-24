@@ -24,7 +24,7 @@ python3 main.py --instance a/instance_0003.txt --maxIters 5000 --hms 200 --hmcr 
 ```
 ## Heurística Construtiva
 
-A construção  possui um tamanho alvo da wave, valor aleatório que respeita os limites mínimos e máximos. Primeiro a construção tenta adicionar os pedidos que exigem menos corredores, para isso a lista de pedidos candidatos é ordenada conforme corredores associados ao pedido. A wave é construida iterativamente, sempre verificando a restrição de armazenamento dos corredores. Se a restrição for violada, a adição do pedido é desfeita. Os corredores necessários por esse pedido que antes eram abrangidos pela solução, não são mais utilizados. 
+A construção  possui um tamanho alvo da wave, valor aleatório que respeita os limites mínimos e máximos. Primeiro a construção tenta adicionar os pedidos que possuem itens que exigem menos corredores, para isso a lista de pedidos candidatos é ordenada conforme corredores associados ao pedido. A wave é construida iterativamente, sempre verificando a restrição de armazenamento dos corredores. Se a restrição for violada, a adição do pedido é desfeita. Os corredores necessários por esse pedido que antes eram abrangidos pela solução, não são mais utilizados. 
 
 ## Geração de Nova Harmonia 
 
@@ -36,7 +36,8 @@ Caso contrário o algoritmo seleciona um elemento aleatório diferente, sem cons
 
 ## Estratégia de reparação da solução
 
-A estratégia de reparação cria uma solução temporária separando o vetor de harmonia, se o número de pedidos selecionados for menor que o número mínimo de pedidos, o algoritmo entra em um looping para adição de candidatos que ainda não estão na solução. Sempre verificando a viabilidade da solução com o pedido adicionado. Após isso, ele entra em um segundo looping para garantir que o número de pedidos não ultrapasse o limite máximo, tentando remover candidatos mantendo a viabilidade da solução. No final do método de reparação a solução é verficada novamente, se ainda não é viável é chamada a construção gulosa para nova solução. 
+A estratégia começa com a solução gerada pelo Harmony Search, entra em looping até a solução ser viável, ou seja, respeitar os limites superior e inferior e armazeamento dos corredores. Dentro do looping a reparação remove pedidos com as maiores quantidades de itens. Logo após, a reparação tenta melhorar a solução adicionando pedidos candidatos. Os pedidos candidatos são ordenados de acordo com o número de itens, do menor para o maior. Para a adição de pedidos candidatos ainda é verificado a viabilidade da solução. O processo continua até que todos os pedidos candidatos tenham sido incluídos no lugar dos removidos.
+
 
 
 
