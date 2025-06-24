@@ -62,6 +62,9 @@ def reparar_harmonia(harmony, instance):
     while not (sol.lb <= total_pedidos <= sol.ub and sol.armazenamento_suficiente()):
         pedidos_sol = [i for i in range(n_pedidos) if sol.x[i] == 1]
 
+        if not pedidos_sol:
+            break
+
         #pedido com maior custo
         i_remove = max(pedidos_sol, key=lambda i: sum(instance.orders[i].values()))
 
