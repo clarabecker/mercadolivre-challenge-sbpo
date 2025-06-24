@@ -50,7 +50,6 @@ if __name__ == '__main__':
         construtor_solucao=construtor_de_solucao
     )
 
-    # Pega os índices dos pedidos e corredores ativos
     pedidos = [i for i, v in enumerate(sol.x) if v == 1]
     corredores = [i for i, v in enumerate(sol.y) if v == 1]
 

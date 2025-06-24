@@ -104,13 +104,6 @@ class Solution:
                 for corredor in self.I.order_aisles[i]:
                     self.y[corredor] = 1
 
-
-    def get_pedidos_ativos(self):
-        return [i for i, v in enumerate(self.x) if v == 1]
-
-    def get_corredores_ativos(self):
-        return [i for i, v in enumerate(self.y) if v == 1]
-
     def salvar_solucao_em_arquivo(self, solution_vector, n_pedidos, n_corredores, filepath):
         pedidos_selecionados = [i for i in range(n_pedidos) if solution_vector[i] == 1]
         corredores_selecionados = [

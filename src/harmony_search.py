@@ -54,35 +54,41 @@ def reparar_harmonia(harmony, instance):
     x = harmony[:n_pedidos]
 
     sol = Solution(instance)
-    sol.x = x
+    sol.x = x.copy()
     sol.atualizar_corredores()
 
-    # Limpa pedidos inválidos
-    for i in range(n_pedidos):
-        sol.x[i] = 0
-    sol.atualizar_corredores()
+    total_pedidos = sum(sum(instance.orders[i].values()) for i in range(n_pedidos) if sol.x[i] == 1)
 
-    #tenta incluir pedidos viáveis, priorizando os de menor custo em corredores
-    pedidos = list(range(n_pedidos))
-    random.shuffle(pedidos)
+    while not (sol.lb <= total_pedidos <= sol.ub and sol.armazenamento_suficiente()):
+        pedidos_sol = [i for i in range(n_pedidos) if sol.x[i] == 1]
 
-    total_unidades = 0
+        #pedido com maior custo
+        i_remove = max(pedidos_sol, key=lambda i: sum(instance.orders[i].values()))
 
-    for i in pedidos:
+        sol.x[i_remove] = 0
+        sol.atualizar_corredores()
+        total_pedidos -= sum(instance.orders[i_remove].values())
+
+    #inclui pedido candidato na solução
+    pedidos_candidatos = [i for i in range(n_pedidos) if sol.x[i] == 0]
+
+    pedidos_candidatos = sorted(pedidos_candidatos, key=lambda i: sum(instance.orders[i].values()))
+
+    for i in pedidos_candidatos:
         unidades = sum(instance.orders[i].values())
-        if total_unidades + unidades > sol.ub:
+        if total_pedidos + unidades > sol.ub:
             continue
 
         sol.x[i] = 1
         sol.atualizar_corredores()
 
         if sol.armazenamento_suficiente():
-            total_unidades += unidades
+            total_pedidos += unidades
         else:
             sol.x[i] = 0
             sol.atualizar_corredores()
 
-        if sol.lb <= total_unidades <= sol.ub and sol.armazenamento_suficiente():
+        if sol.lb <= total_pedidos <= sol.ub and sol.armazenamento_suficiente():
             break
 
     if not sol.verificacao_solucao():
@@ -93,7 +99,6 @@ def reparar_harmonia(harmony, instance):
     harmony[n_pedidos:] = sol.y
 
     return harmony
-
 
 def execute(n, hms, maxIters, hmcr, par, ofv, construtor_solucao=None):
     harmony_memory = iniciar_harmony_memory(n, hms, ofv, construtor_solucao)
