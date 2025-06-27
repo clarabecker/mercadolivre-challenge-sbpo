@@ -37,7 +37,7 @@ Se o número da iteração atual for menor que o número máximo de iteraçõs, 
 
 ## Mean Harmony e Distribuição de Probabilidade
 
-Como nova abordagem para resoluçá̃o de problemas da mochila multidimensionais de grande escala, foi desenvolvido um algoritmo de busca harmônica binária (Kong et al., 2015). Em vez de realizar alterações no velor de solução, o algoritmo calcula, para cada variável a frequência com que o valor 1 aparece na memória.
+Como nova abordagem para resoluçá̃o de problemas da mochila multidimensionais de grande escala, foi desenvolvido um algoritmo de busca harmônica binária. Em vez de realizar alterações no velor de solução, o algoritmo calcula, para cada variável a frequência com que o valor 1 aparece na memória.
 
 ![image](https://github.com/user-attachments/assets/293270d1-37a8-4484-9672-62996153edda)
 
