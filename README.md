@@ -34,3 +34,16 @@ A nova harmonia é comparada com a pior harmonia na HM. Se a nova harmonia gerad
 
 **5. Verificação do critério de parada:**
 Se o número da iteração atual for menor que o número máximo de iteraçõs, então os passos 3 e 4 são repetidos. Caso contrário o algoritmo para. 
+
+## Mean Harmony e Distribuição de Probabilidade
+
+Como nova abordagem para resoluçá̃o de problemas da mochila multidimensionais de grande escala, foi desenvolvido um algoritmo de busca harmônica binária. Em vez de realizar alterações no velor de solução, o algoritmo calcula, para cada variável a frequência com que o valor 1 aparece na memória.
+
+![image](https://github.com/user-attachments/assets/293270d1-37a8-4484-9672-62996153edda)
+
+Em seguida, é realizada a construção da Mean Harmony (MH) que presenta a tendência mais forte da memória para cada bit. A MH substitui a Harmony Memory tradicional que armazenava soluções completas. O parâmetro da taxa de consideração do uso da memória é substituído pelo valor da média, ou seja, nessa versãoi não é considerado esse parâmetro.
+
+![image](https://github.com/user-attachments/assets/856b52a8-7256-4701-8c57-a68cadc85ea4)
+
+O parâmetro PAR também não é maiks utilizado, o ajuste do tom é baseado na divergência entre pares de valores na memória. O ajuste é a inversão do valor binário, quanto mais diversidade houver entre os valores, maior a chance do ajuste de tom, modificações na solução.
+
