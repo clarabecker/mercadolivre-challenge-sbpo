@@ -1,6 +1,6 @@
 import sys
-from solution import Solution
-from harmony_search import reparar_harmonia
+from .solution import Solution
+from .repair import reparar_harmonia
 
 def avaliar_harmonia(harmony_vector, instance):
     n_pedidos = len(instance.orders)

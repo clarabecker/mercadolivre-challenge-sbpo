@@ -21,10 +21,17 @@ class Solution:
         self.x = [0] * num_pedidos
         self.y = [0] * len(self.I.aisles)
 
-        pedidos_candidatos = list(range(num_pedidos))
-        random.shuffle(pedidos_candidatos)
-
         total_unidades = 0
+
+        pedidos_candidatos = list(range(num_pedidos))
+
+        def score(pedido):
+            unidades = sum(self.I.orders[pedido].values())
+            novos_corredores = [a for a in self.I.order_aisles[pedido] if self.y[a] == 0]
+            return unidades / (1 + len(novos_corredores))
+
+        # Ordena pedidos por eficiência: mais unidades por corredor novo
+        pedidos_candidatos.sort(key=score, reverse=True)
 
         for pedido_candidato in pedidos_candidatos:
             unidades_pedido = sum(self.I.orders[pedido_candidato].values())
@@ -42,10 +49,12 @@ class Solution:
             if self.armazenamento_suficiente():
                 total_unidades += unidades_pedido
             else:
+                # desfaz se não couber
                 self.x[pedido_candidato] = 0
                 for a in corredores_novos:
                     self.y[a] = 0
 
+            # Se já atingiu o mínimo exigido, pode parar (opcional)
             if total_unidades >= self.lb:
                 break
 

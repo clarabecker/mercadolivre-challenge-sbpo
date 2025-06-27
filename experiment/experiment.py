@@ -11,7 +11,7 @@ instancia_final = 20
 
 main_script = "main.py"
 
-with open("results.csv", "w", newline="") as csvfile:
+with open("../src/results/results.csv", "w", newline="") as csvfile:
     writer = csv.writer(csvfile)
     writer.writerow(["Instância", "HMCR", "PAR", "OFV", "Status"])
 
