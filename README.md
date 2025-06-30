@@ -46,5 +46,5 @@ Em seguida, é realizada a construção da Mean Harmony (MH) que presenta a tend
 
 ![image](https://github.com/user-attachments/assets/856b52a8-7256-4701-8c57-a68cadc85ea4)
 
-O ajuste de tom  é baseado na divergência entre pares de valores da memória de harmonia. Quando dois valores em uma mesma posição são diferentes, há uma chance — no caso da nossa implementação, determinada pelo parâmetro par (pitch adjustment rate) — de inverter o valor correspondente na nova solução. 
+O ajuste de tom  é baseado na divergência entre pares de valores da memória de harmonia. Quando dois valores em uma mesma posição são diferentes, há uma chance — no caso da nossa implementação, determinada pelo parâmetro PAR (pitch adjustment rate) — de inverter o valor correspondente na nova solução. 
 
