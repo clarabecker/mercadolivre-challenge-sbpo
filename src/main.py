@@ -19,6 +19,7 @@ if __name__ == '__main__':
     parser.add_argument('--seed', type=int, default=0, help='Seed')
     parser.add_argument('--hms', type=int, default=500, help='Tamanho da Harmony Memory')
     parser.add_argument('--maxIters', type=int, default=1000, help='Número de iterações')
+    parser.add_argument('--par', type=float, default=0.7, help='Ajuste de Tom')
     args = parser.parse_args()
 
     full_instance_path = BASE_INSTANCES_DIR / args.instance
@@ -43,7 +44,8 @@ if __name__ == '__main__':
         hms=args.hms,
         maxIters=args.maxIters,
         ofv=ofv,
-        construtor_solucao=construtor_de_solucao
+        construtor_solucao=construtor_de_solucao,
+        par=args.par,
     )
 
     pedidos = [i for i, v in enumerate(sol.x) if v == 1]

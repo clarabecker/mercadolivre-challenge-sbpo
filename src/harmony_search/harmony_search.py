@@ -4,33 +4,30 @@ from .solution import Solution
 from .repair import reparar_harmonia
 
 def calcular_probabilidades(harmony_memory):
-    n_bits = harmony_memory.shape[1] - 1  # exclui OFV
+    n_bits = harmony_memory.shape[1] - 1
     prob = np.mean(harmony_memory[:, :n_bits], axis=0)
     return prob
 
-def gerar_mean_harmony(probabilidades):
-    return np.array([1 if p > 0.5 else 0 for p in probabilidades], dtype=int)
-
-def pitch_adjustment(harmony, harmony_memory):
+def pitch_adjustment(harmony, harmony_memory, par):
     n = len(harmony)
-    h1 = harmony_memory[random.randint(0, len(harmony_memory)-1), :-1].astype(int)
-    h2 = harmony_memory[random.randint(0, len(harmony_memory)-1), :-1].astype(int)
+    h1 = harmony_memory[random.randint(0, len(harmony_memory) - 1), :-1].astype(int)
+    h2 = harmony_memory[random.randint(0, len(harmony_memory) - 1), :-1].astype(int)
 
     for i in range(n):
-        if h1[i] != h2[i]:  # se há diversidade
-            if random.random() < 0.5:  # aplica ajuste com base na diferença
+        if h1[i] != h2[i]:
+            if random.random() < par:
                 harmony[i] = 1 - harmony[i]
 
     return harmony
 
-def geracao_harmonia(n, harmony_memory, instance):
+def geracao_harmonia(n, harmony_memory, instance, par):
     prob = calcular_probabilidades(harmony_memory)
     new_harmony = np.zeros(n, dtype=int)
 
     for i in range(n):
         new_harmony[i] = 1 if random.random() < prob[i] else 0
 
-    new_harmony = pitch_adjustment(new_harmony, harmony_memory)
+    new_harmony = pitch_adjustment(new_harmony, harmony_memory, par)
     new_harmony = reparar_harmonia(new_harmony, instance)
     return new_harmony
 
@@ -60,7 +57,7 @@ def atualizar_harmony_memory(harmony_memory, new_harmony, ofv):
 
     return harmony_memory
 
-def execute(n, hms, maxIters, ofv, construtor_solucao=None):
+def execute(n, hms, maxIters, ofv, construtor_solucao, par):
     harmony_memory = iniciar_harmony_memory(n, hms, ofv, construtor_solucao)
     instance = ofv.keywords['instance']
 
@@ -68,7 +65,7 @@ def execute(n, hms, maxIters, ofv, construtor_solucao=None):
     best_ofv = harmony_memory[0, -1]
 
     for _ in range(maxIters):
-        new_harmony = geracao_harmonia(n, harmony_memory, instance)
+        new_harmony = geracao_harmonia(n, harmony_memory, instance, par)
         harmony_memory = atualizar_harmony_memory(harmony_memory, new_harmony, ofv)
 
         if harmony_memory[0, -1] > best_ofv:

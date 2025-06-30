@@ -1,53 +1,56 @@
 from .solution import Solution
 
-
 def reparar_harmonia(harmony, instance):
     n_pedidos = len(instance.orders)
-    n_corredores = len(instance.aisles)
+
+    harmony = [int(val) for val in harmony]
+    x = harmony[:n_pedidos]
 
     sol = Solution(instance)
-    sol.x = harmony[:n_pedidos].copy()
+    sol.x = x.copy()
     sol.atualizar_corredores()
 
-    # Defina a função antes de usar no sorted
-    def pseudo_utilidade(i):
-        corredores_necessarios = instance.order_aisles[i]
-        custo = len([c for c in corredores_necessarios if sol.y[c] == 1])
-        beneficio = sum(instance.orders[i].values())
-        return beneficio / custo if custo > 0 else beneficio
+    total_pedidos = sum(sum(instance.orders[i].values()) for i in range(n_pedidos) if sol.x[i] == 1)
 
-    pedidos_ativos = [i for i in range(n_pedidos) if sol.x[i] == 1]
+    while not (sol.lb <= total_pedidos <= sol.ub and sol.armazenamento_suficiente()):
+        pedidos_sol = [i for i in range(n_pedidos) if sol.x[i] == 1]
 
-    while not (sol.lb <= sum(sum(instance.orders[i].values()) for i in range(n_pedidos) if sol.x[i] == 1) <= sol.ub and sol.armazenamento_suficiente()):
-        if not pedidos_ativos:
+        if not pedidos_sol:
             break
 
-        i_remove = min(pedidos_ativos, key=pseudo_utilidade)
+        # Remover pedido que usa mais corredores distintos
+        i_remove = max(pedidos_sol, key=lambda i: sum(1 for q in instance.orders[i].values() if q > 0))
+
         sol.x[i_remove] = 0
         sol.atualizar_corredores()
-        pedidos_ativos.remove(i_remove)
+        total_pedidos -= sum(instance.orders[i_remove].values())
 
-    pedidos_inativos = [i for i in range(n_pedidos) if sol.x[i] == 0]
-    # Aqui já funciona pois a função está definida
-    pedidos_inativos = sorted(pedidos_inativos, key=lambda i: -pseudo_utilidade(i))
+    pedidos_candidatos = [i for i in range(n_pedidos) if sol.x[i] == 0]
 
-    for i in pedidos_inativos:
+    pedidos_candidatos = sorted(pedidos_candidatos, key=lambda i: sum(instance.orders[i].values()))
+
+    for i in pedidos_candidatos:
+        unidades = sum(instance.orders[i].values())
+        if total_pedidos + unidades > sol.ub:
+            continue
+
         sol.x[i] = 1
         sol.atualizar_corredores()
 
-        total_unidades = sum(sum(instance.orders[j].values()) for j in range(n_pedidos) if sol.x[j] == 1)
-
-        if total_unidades > sol.ub or not sol.armazenamento_suficiente():
+        if sol.armazenamento_suficiente():
+            total_pedidos += unidades
+        else:
             sol.x[i] = 0
             sol.atualizar_corredores()
 
-        if sol.lb <= total_unidades <= sol.ub and sol.armazenamento_suficiente():
+        if sol.lb <= total_pedidos <= sol.ub and sol.armazenamento_suficiente():
             break
 
-    harmony[:n_pedidos] = sol.x
-    harmony[n_pedidos:n_pedidos + n_corredores] = sol.y
-
     if not sol.verificacao_solucao():
-        raise Exception("Reparação falhou: solução inviável")
+        raise Exception("Reparação falhou.")
+
+    sol.atualizar_corredores()
+    harmony[:n_pedidos] = sol.x
+    harmony[n_pedidos:] = sol.y
 
     return harmony

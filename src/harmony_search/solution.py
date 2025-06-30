@@ -30,7 +30,6 @@ class Solution:
             novos_corredores = [a for a in self.I.order_aisles[pedido] if self.y[a] == 0]
             return unidades / (1 + len(novos_corredores))
 
-        # Ordena pedidos por eficiência: mais unidades por corredor novo
         pedidos_candidatos.sort(key=score, reverse=True)
 
         for pedido_candidato in pedidos_candidatos:
@@ -49,12 +48,10 @@ class Solution:
             if self.armazenamento_suficiente():
                 total_unidades += unidades_pedido
             else:
-                # desfaz se não couber
                 self.x[pedido_candidato] = 0
                 for a in corredores_novos:
                     self.y[a] = 0
 
-            # Se já atingiu o mínimo exigido, pode parar (opcional)
             if total_unidades >= self.lb:
                 break
 
