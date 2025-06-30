@@ -25,7 +25,6 @@ Os primeiros parâmetros são relacionados a Harmony Memory (HM) que armazena as
 O algoritmo começa criando um conjunto inicial de soluções. Cada solução passa por uma avaliação, segundo cálculo da função objetivo. As soluções armazenadas na HM, são ordenadas, no caso de maximização da maior para menor. 
 
 **3. Improvisação de Nova Harmonia:**
-
  Após a criação, a qualidade da nova harmonia também é calculada através da função objetivo. 
 
 **4. Atualização da Harmony Memory:**
@@ -44,5 +43,5 @@ Em seguida, é realizada a construção da Mean Harmony (MH) que presenta a tend
 
 ![image](https://github.com/user-attachments/assets/856b52a8-7256-4701-8c57-a68cadc85ea4)
 
-O parâmetro PAR também não é maiks utilizado, o ajuste do tom é baseado na divergência entre pares de valores na memória. O ajuste é a inversão do valor binário, quanto mais diversidade houver entre os valores, maior a chance do ajuste de tom, modificações na solução.
+O ajuste de tom  é baseado na divergência entre pares de valores da memória de harmonia. Quando dois valores em uma mesma posição são diferentes, há uma chance — no caso da nossa implementação, determinada pelo parâmetro par (pitch adjustment rate) — de inverter o valor correspondente na nova solução. 
 
