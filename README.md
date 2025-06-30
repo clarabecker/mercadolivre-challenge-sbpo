@@ -16,10 +16,9 @@ O Harmony Search (HS) é um algoritmo baseado em população, inspirado na impro
 + Dimensão da variável N;
 + Harmony Memory Size (HMS);
 + Número Máximo de Iterações (maxIters);
-+ Harmony Memory Considering Rate (HMCR);
 + Pitch Adjusting Rate (PAR);
 
-Os primeiros parâmetros são relacionados a Harmony Memory (HM) que armazena as melhores soluções encontradas até a iteração atual. O HMS é o número de soluções armazenadas na Harmony Memory. O HMCR é a probabilidade de escolha dos valores das soluções armazenadas na memória, determina a frequência com que o algoritmo se baseia nas soluções existentes na memória para criar outra solução. O PAR é a probabilidade de ajuste de um valor escolhido presenta na memória, semelhante a ajustar o tom de uma nota musical. 
+Os primeiros parâmetros são relacionados a Harmony Memory (HM) que armazena as melhores soluções encontradas até a iteração atual. O HMS é o número de soluções armazenadas na Harmony Memory. O PAR é a probabilidade de ajuste de um valor escolhido presenta na memória, semelhante a ajustar o tom de uma nota musical. 
   
 **2. Inicialização da Harmony Memory:**
 
@@ -27,7 +26,7 @@ O algoritmo começa criando um conjunto inicial de soluções. Cada solução pa
 
 **3. Improvisação de Nova Harmonia:**
 
-Uma nova solução candidata é criada com base nas soluções existentes na HM e na aleatoriedade. Para cada elemento da solução o algoritmo usa um valor de uma das soluções existentes na HM, com base no parâmetro HMCR ou aleatoriedade. Após a criação, a qualidade da nova harmonia também é calculada através da função objetivo. 
+ Após a criação, a qualidade da nova harmonia também é calculada através da função objetivo. 
 
 **4. Atualização da Harmony Memory:**
 A nova harmonia é comparada com a pior harmonia na HM. Se a nova harmonia gerada é melhor, ela substitui a pior na memória. 
@@ -41,7 +40,7 @@ Como nova abordagem para resoluçá̃o de problemas da mochila multidimensionais
 
 ![image](https://github.com/user-attachments/assets/293270d1-37a8-4484-9672-62996153edda)
 
-Em seguida, é realizada a construção da Mean Harmony (MH) que presenta a tendência mais forte da memória para cada bit. A MH substitui a Harmony Memory tradicional que armazenava soluções completas. O parâmetro da taxa de consideração do uso da memória é substituído pelo valor da média, ou seja, nessa versãoi não é considerado esse parâmetro.
+Em seguida, é realizada a construção da Mean Harmony (MH) que presenta a tendência mais forte da memória para cada bit. A MH substitui a Harmony Memory tradicional que armazenava soluções completas. O parâmetro da taxa de consideração do uso da memória é substituído pelo valor da média, ou seja, nessa versão não é considerado esse parâmetro.
 
 ![image](https://github.com/user-attachments/assets/856b52a8-7256-4701-8c57-a68cadc85ea4)
 
