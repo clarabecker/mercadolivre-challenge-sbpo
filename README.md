@@ -25,12 +25,15 @@ Os primeiros parâmetros são relacionados a Harmony Memory (HM) que armazena as
 O algoritmo começa criando um conjunto inicial de soluções. Cada solução passa por uma avaliação, segundo cálculo da função objetivo. As soluções armazenadas na HM, são ordenadas, no caso de maximização da maior para menor. 
 
 **3. Improvisação de Nova Harmonia:**
+
  Após a criação, a qualidade da nova harmonia também é calculada através da função objetivo. 
 
 **4. Atualização da Harmony Memory:**
+
 A nova harmonia é comparada com a pior harmonia na HM. Se a nova harmonia gerada é melhor, ela substitui a pior na memória. 
 
 **5. Verificação do critério de parada:**
+
 Se o número da iteração atual for menor que o número máximo de iteraçõs, então os passos 3 e 4 são repetidos. Caso contrário o algoritmo para. 
 
 ## Mean Harmony e Distribuição de Probabilidade
