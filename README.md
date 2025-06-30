@@ -10,7 +10,7 @@ restrições.
 
 O Harmony Search (HS) é um algoritmo baseado em população, inspirado na improvisação de músicos. Onde a solução é representada por uma harmonia. O algorimo possui os seguintes passos: 
 
-![image](https://github.com/user-attachments/assets/a8828d7a-9c7d-4e8f-b97d-1e9dcd23551b)
+<img src="https://github.com/user-attachments/assets/a8828d7a-9c7d-4e8f-b97d-1e9dcd23551b" width="500"/>
 
 **1. Inicialição dos parâmetros:**
 + Dimensão da variável N;
@@ -40,11 +40,11 @@ Se o número da iteração atual for menor que o número máximo de iteraçõs, 
 
 Como nova abordagem para resoluçá̃o de problemas da mochila multidimensionais de grande escala, foi desenvolvido um algoritmo de busca harmônica binária. Em vez de realizar alterações no velor de solução, o algoritmo calcula, para cada variável a frequência com que o valor 1 aparece na memória.
 
-![image](https://github.com/user-attachments/assets/293270d1-37a8-4484-9672-62996153edda)
+<img src="https://github.com/user-attachments/assets/293270d1-37a8-4484-9672-62996153edda" width="300"/>
 
 Em seguida, é realizada a construção da Mean Harmony (MH) que presenta a tendência mais forte da memória para cada bit. A MH substitui a Harmony Memory tradicional que armazenava soluções completas. O parâmetro da taxa de consideração do uso da memória é substituído pelo valor da média, ou seja, nessa versão não é considerado esse parâmetro.
 
-![image](https://github.com/user-attachments/assets/856b52a8-7256-4701-8c57-a68cadc85ea4)
+<img src="https://github.com/user-attachments/assets/856b52a8-7256-4701-8c57-a68cadc85ea4" width="300"/>
 
 O ajuste de tom  é baseado na divergência entre pares de valores da memória de harmonia. Quando dois valores em uma mesma posição são diferentes, há uma chance — no caso da nossa implementação, determinada pelo parâmetro PAR (pitch adjustment rate) — de inverter o valor correspondente na nova solução. 
 
