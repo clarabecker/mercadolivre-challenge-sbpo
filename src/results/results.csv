@@ -33,3 +33,62 @@ ajuste,a/instance_0003.txt,20,0.1,6.8,OK
 ajuste,a/instance_0003.txt,20,0.3,6.8,OK
 ajuste,a/instance_0003.txt,20,0.5,6.8,OK
 ajuste,a/instance_0003.txt,20,0.7,6.8,OK
+ajuste,a/instance_0003.txt,20,0.9,6.8,OK
+ajuste,a/instance_0003.txt,30,0.1,5.714285714285714,OK
+ajuste,a/instance_0003.txt,30,0.3,5.714285714285714,OK
+ajuste,a/instance_0003.txt,30,0.5,5.714285714285714,OK
+ajuste,a/instance_0003.txt,30,0.7,5.714285714285714,OK
+ajuste,a/instance_0003.txt,30,0.9,5.714285714285714,OK
+ajuste,a/instance_0003.txt,40,0.1,6.8,OK
+ajuste,a/instance_0003.txt,40,0.3,6.8,OK
+ajuste,a/instance_0003.txt,40,0.5,6.8,OK
+ajuste,a/instance_0003.txt,40,0.7,6.8,OK
+ajuste,a/instance_0003.txt,40,0.9,6.8,OK
+ajuste,a/instance_0003.txt,50,0.1,6.8,OK
+ajuste,a/instance_0003.txt,50,0.3,6.8,OK
+ajuste,a/instance_0003.txt,50,0.5,6.8,OK
+ajuste,a/instance_0003.txt,50,0.7,6.8,OK
+ajuste,a/instance_0003.txt,50,0.9,6.8,OK
+ajuste,a/instance_0005.txt,10,0.1,N/A,Timeout após 60s
+ajuste,a/instance_0005.txt,10,0.3,N/A,Timeout após 60s
+ajuste,a/instance_0005.txt,10,0.5,N/A,Timeout após 60s
+ajuste,a/instance_0005.txt,10,0.7,N/A,Timeout após 60s
+ajuste,a/instance_0005.txt,10,0.9,N/A,Timeout após 60s
+ajuste,a/instance_0005.txt,20,0.1,N/A,Timeout após 60s
+ajuste,a/instance_0005.txt,20,0.3,N/A,Timeout após 60s
+ajuste,a/instance_0005.txt,20,0.5,N/A,Timeout após 60s
+ajuste,a/instance_0005.txt,20,0.7,N/A,Timeout após 60s
+ajuste,a/instance_0005.txt,20,0.9,N/A,Timeout após 60s
+ajuste,a/instance_0005.txt,30,0.1,N/A,Timeout após 60s
+ajuste,a/instance_0005.txt,30,0.3,N/A,Timeout após 60s
+ajuste,a/instance_0005.txt,30,0.5,N/A,Timeout após 60s
+ajuste,a/instance_0005.txt,30,0.7,N/A,Timeout após 60s
+ajuste,a/instance_0005.txt,30,0.9,N/A,Timeout após 60s
+ajuste,a/instance_0005.txt,40,0.1,N/A,Timeout após 60s
+ajuste,a/instance_0005.txt,40,0.3,N/A,Timeout após 60s
+ajuste,a/instance_0005.txt,40,0.5,N/A,Timeout após 60s
+ajuste,a/instance_0005.txt,40,0.7,N/A,Timeout após 60s
+ajuste,a/instance_0005.txt,40,0.9,N/A,Timeout após 60s
+ajuste,a/instance_0005.txt,50,0.1,N/A,Timeout após 60s
+ajuste,a/instance_0005.txt,50,0.3,N/A,Timeout após 60s
+ajuste,a/instance_0005.txt,50,0.5,N/A,Timeout após 60s
+ajuste,a/instance_0005.txt,50,0.7,N/A,Timeout após 60s
+ajuste,a/instance_0005.txt,50,0.9,N/A,Timeout após 60s
+ajuste,b/instance_0001.txt,10,0.1,N/A,Timeout após 60s
+ajuste,b/instance_0001.txt,10,0.3,N/A,Timeout após 60s
+ajuste,b/instance_0001.txt,10,0.5,N/A,Timeout após 60s
+ajuste,b/instance_0001.txt,10,0.7,N/A,Timeout após 60s
+ajuste,b/instance_0001.txt,10,0.9,N/A,Timeout após 60s
+ajuste,b/instance_0001.txt,20,0.1,N/A,Timeout após 60s
+ajuste,b/instance_0001.txt,20,0.3,N/A,Timeout após 60s
+ajuste,b/instance_0001.txt,20,0.5,N/A,Timeout após 60s
+ajuste,b/instance_0001.txt,20,0.7,N/A,Timeout após 60s
+ajuste,b/instance_0001.txt,20,0.9,N/A,Timeout após 60s
+ajuste,b/instance_0001.txt,30,0.1,N/A,Timeout após 60s
+ajuste,b/instance_0001.txt,30,0.3,N/A,Timeout após 60s
+ajuste,b/instance_0001.txt,30,0.5,N/A,Timeout após 60s
+ajuste,b/instance_0001.txt,30,0.7,N/A,Timeout após 60s
+ajuste,b/instance_0001.txt,30,0.9,N/A,Timeout após 60s
+ajuste,b/instance_0001.txt,40,0.1,N/A,Timeout após 60s
+ajuste,b/instance_0001.txt,40,0.3,N/A,Timeout após 60s
+ajuste,b/instance_0001.txt,40,0.5,N/A,Timeout após 60s
