@@ -1,6 +1,7 @@
 import random
 
 import numpy as np
+from pathlib import Path
 
 
 class Solution:
@@ -111,6 +112,8 @@ class Solution:
                     self.y[corredor] = 1
 
     def salvar_solucao_em_arquivo(self, solution_vector, n_pedidos, n_corredores, filepath):
+        Path(filepath).parent.mkdir(parents=True, exist_ok=True)
+
         pedidos_selecionados = [i for i in range(n_pedidos) if solution_vector[i] == 1]
         corredores_selecionados = [
             i - n_pedidos for i in range(n_pedidos, n_pedidos + n_corredores)
@@ -124,3 +127,22 @@ class Solution:
             f.write(f"{len(corredores_selecionados)}\n")
             for c in corredores_selecionados:
                 f.write(f"{c}\n")
+
+    @classmethod
+    def from_vector(cls, vector, instance):
+        """
+        Cria uma instância de Solution a partir de um vetor binário completo (x + y)
+        """
+        n_pedidos = len(instance.orders)
+        n_corredores = len(instance.aisles)
+
+        if len(vector) != n_pedidos + n_corredores:
+            raise ValueError("Tamanho do vetor não é compatível com a instância.")
+
+        x = np.array(vector[:n_pedidos], dtype=int)
+        y = np.array(vector[n_pedidos:], dtype=int)
+
+        sol = cls(instance)
+        sol.x = x
+        sol.y = y
+        return sol

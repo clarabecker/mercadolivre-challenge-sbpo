@@ -17,3 +17,5 @@ def avaliar_harmonia(harmony_vector, instance):
     return sol.calculo_ofv()
 
 
+
+

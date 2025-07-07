@@ -11,6 +11,7 @@ from harmony_search.avaliacao import avaliar_harmonia
 
 if __name__ == '__main__':
     SCRIPT_DIR = Path(__file__).parent
+    (SCRIPT_DIR / 'results').mkdir(exist_ok=True)
     BASE_INSTANCES_DIR = SCRIPT_DIR / '..' / 'instances'
     #integração com o cheker 
     #avaliação experimental com dois últimos parâmetros
@@ -20,6 +21,7 @@ if __name__ == '__main__':
     parser.add_argument('--hms', type=int, default=500, help='Tamanho da Harmony Memory')
     parser.add_argument('--maxIters', type=int, default=1000, help='Número de iterações')
     parser.add_argument('--par', type=float, default=0.7, help='Ajuste de Tom')
+    parser.add_argument('--timeout', type=int, default=None, help='Tempo limite (segundos)')
     args = parser.parse_args()
 
     full_instance_path = BASE_INSTANCES_DIR / args.instance
@@ -46,6 +48,7 @@ if __name__ == '__main__':
         ofv=ofv,
         construtor_solucao=construtor_de_solucao,
         par=args.par,
+        timeout=args.timeout,
     )
 
     pedidos = [i for i, v in enumerate(sol.x) if v == 1]
@@ -54,6 +57,7 @@ if __name__ == '__main__':
     ofv_1 = sol.calculo_ofv()
 
     print("Função Objetivo:", ofv_1)
+
 
     print(f"Validando solução")
 
