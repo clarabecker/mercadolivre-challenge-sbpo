@@ -3,25 +3,21 @@ from itertools import product
 import re
 import csv
 import os
-import threading
 
 # === CONFIGURAÇÕES ===
 parametros = {
     "hms": [10, 20, 30, 40, 50],
     "par": [0.1, 0.3, 0.5, 0.7, 0.9],
 }
-timeout_segundos = 60
 main_script = "../src/main.py"
-modo = "ajuste"  # ajuste OU validacao
+modo = "ajuste"
 
 melhor_config = {"hms": 30, "par": 0.7}
 
-# === INSTÂNCIAS ===
 diretorios = ['a', 'b']
 instancia_inicio = 1
 instancia_final = 20
-instancias_todas = [f"{d}/instance_{i:04d}.txt" for d in diretorios for i in
-                    range(instancia_inicio, instancia_final + 1)]
+instancias_todas = [f"{d}/instance_{i:04d}.txt" for d in diretorios for i in range(instancia_inicio, instancia_final + 1)]
 instancias_ajuste = [
     'a/instance_0001.txt', 'a/instance_0003.txt', 'a/instance_0005.txt',
     'b/instance_0001.txt', 'b/instance_0003.txt', 'b/instance_0005.txt',
@@ -52,53 +48,35 @@ with open("../src/results/results.csv", "w", newline="") as csvfile:
             command = ["python3", main_script, "--instance", instance_name]
             for k, v in params_dict.items():
                 command += [f"--{k}", str(v)]
-            command += ["--timeout", str(timeout_segundos)]
 
-            try:
-                process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+            process = subprocess.Popen(
+                command,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                text=True
+            )
 
+            stdout, stderr = process.communicate()
 
-                def kill_process():
-                    try:
-                        process.kill()
-                    except Exception:
-                        pass
-
-
-                timer = threading.Timer(timeout_segundos, kill_process)
-                timer.start()
-                stdout, stderr = process.communicate()
-                timer.cancel()
-
-                # Tentativa de extrair a OFV mesmo que incompleta
-                match = re.search(r"Função Objetivo:\s*([-+]?[0-9]*\.?[0-9]+)", stdout)
-                ofv = "N/A"
-                status = "Erro"
-
-                if match:
-                    ofv = float(match.group(1))
-                    status = "OK" if process.returncode == 0 else f"Erro: {process.returncode}"
-                    print(f"OFV: {ofv}")
+            # Extrai valor objetivo e status
+            match = re.search(r"Função Objetivo:\s*([-+]?[0-9]*\.?[0-9]+)", stdout)
+            if match:
+                ofv = float(match.group(1))
+                status = "OK"
+            else:
+                match_timeout = re.search(r"Melhor solução parcial encontrada com OFV = ([-+]?[0-9]*\.?[0-9]+)", stdout)
+                if match_timeout:
+                    ofv = float(match_timeout.group(1))
+                    status = "Parcial"
                 else:
-                    if process.returncode == -9 or process.returncode is None:
-                        status = f"Timeout após {timeout_segundos}s"
-                        print("[!] Timeout atingido.")
-                    else:
-                        status = f"Erro: {process.returncode}"
-                        print("[!] Erro de execução:")
-                        print(stderr)
+                    ofv = "N/A"
+                    status = f"Erro: {process.returncode}"
 
-                # Salva log apenas se houve erro 
-                if status != "OK" and not status.startswith("Timeout"):
-                    log_file = f"../src/results/logs/{instance_name.replace('/', '_')}_{params_dict['hms']}_{params_dict['par']}.log"
-                    with open(log_file, "w") as f:
-                        f.write(stdout)
-                        f.write("\n--- STDERR ---\n")
-                        f.write(stderr)
+            if status != "OK":
+                log_file = f"../src/results/logs/{instance_name.replace('/', '_')}_{params_dict['hms']}_{params_dict['par']}.log"
+                with open(log_file, "w") as f:
+                    f.write(stdout)
+                    f.write("\n--- STDERR ---\n")
+                    f.write(stderr)
 
-                # Salva no CSV
-                writer.writerow([modo, instance_name] + list(params_dict.values()) + [ofv, status])
-
-            except Exception as e:
-                print(f"[!] Exceção ao executar {command}: {e}")
-                writer.writerow([modo, instance_name] + list(params_dict.values()) + ["N/A", f"Falha: {str(e)}"])
+            writer.writerow([modo, instance_name] + list(params_dict.values()) + [ofv, status])
