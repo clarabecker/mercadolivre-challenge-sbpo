@@ -64,9 +64,11 @@ if __name__ == '__main__':
     output_path = SCRIPT_DIR / 'results/output.txt'
     sol.salvar_solucao_em_arquivo(np.concatenate([sol.x, sol.y]), n_pedidos, n_corredores, output_path)
 
+
     def rodar_checker(input_file, output_file):
+        checker_path = SCRIPT_DIR / 'checker.py'
         result = subprocess.run(
-            ['python3', 'checker.py', input_file, output_file],
+            ['python3', str(checker_path), input_file, output_file],
             capture_output=True,
             text=True
         )
@@ -74,7 +76,6 @@ if __name__ == '__main__':
         if result.returncode != 0:
             print("Checker terminou com erro:")
             print(result.stderr)
-
 
     rodar_checker(str(full_instance_path), str(output_path))
 

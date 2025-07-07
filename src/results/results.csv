@@ -1,29 +1,29 @@
 Modo,Instância,hms,par,OFV,Status
 ajuste,a/instance_0001.txt,10,0.1,5.230769230769231,OK
-ajuste,a/instance_0001.txt,10,0.3,5.666666666666667,OK
-ajuste,a/instance_0001.txt,10,0.5,5.153846153846154,OK
-ajuste,a/instance_0001.txt,10,0.7,4.25,OK
-ajuste,a/instance_0001.txt,10,0.9,4.533333333333333,OK
-ajuste,a/instance_0001.txt,20,0.1,4.466666666666667,OK
+ajuste,a/instance_0001.txt,10,0.3,6.090909090909091,OK
+ajuste,a/instance_0001.txt,10,0.5,5.230769230769231,OK
+ajuste,a/instance_0001.txt,10,0.7,4.466666666666667,OK
+ajuste,a/instance_0001.txt,10,0.9,4.466666666666667,OK
+ajuste,a/instance_0001.txt,20,0.1,5.230769230769231,OK
 ajuste,a/instance_0001.txt,20,0.3,4.785714285714286,OK
-ajuste,a/instance_0001.txt,20,0.5,4.2,OK
-ajuste,a/instance_0001.txt,20,0.7,4.0,OK
-ajuste,a/instance_0001.txt,20,0.9,3.9411764705882355,OK
-ajuste,a/instance_0001.txt,30,0.1,5.153846153846154,OK
-ajuste,a/instance_0001.txt,30,0.3,4.533333333333333,OK
-ajuste,a/instance_0001.txt,30,0.5,4.25,OK
-ajuste,a/instance_0001.txt,30,0.7,4.1875,OK
-ajuste,a/instance_0001.txt,30,0.9,4.428571428571429,OK
-ajuste,a/instance_0001.txt,40,0.1,4.466666666666667,OK
-ajuste,a/instance_0001.txt,40,0.3,4.533333333333333,OK
-ajuste,a/instance_0001.txt,40,0.5,4.25,OK
+ajuste,a/instance_0001.txt,20,0.5,4.533333333333333,OK
+ajuste,a/instance_0001.txt,20,0.7,4.1875,OK
+ajuste,a/instance_0001.txt,20,0.9,3.7777777777777777,OK
+ajuste,a/instance_0001.txt,30,0.1,4.785714285714286,OK
+ajuste,a/instance_0001.txt,30,0.3,4.25,OK
+ajuste,a/instance_0001.txt,30,0.5,4.466666666666667,OK
+ajuste,a/instance_0001.txt,30,0.7,4.846153846153846,OK
+ajuste,a/instance_0001.txt,30,0.9,3.857142857142857,OK
+ajuste,a/instance_0001.txt,40,0.1,4.533333333333333,OK
+ajuste,a/instance_0001.txt,40,0.3,4.785714285714286,OK
+ajuste,a/instance_0001.txt,40,0.5,4.857142857142857,OK
 ajuste,a/instance_0001.txt,40,0.7,4.25,OK
-ajuste,a/instance_0001.txt,40,0.9,3.7777777777777777,OK
-ajuste,a/instance_0001.txt,50,0.1,4.0,OK
-ajuste,a/instance_0001.txt,50,0.3,4.533333333333333,OK
-ajuste,a/instance_0001.txt,50,0.5,4.533333333333333,OK
-ajuste,a/instance_0001.txt,50,0.7,4.466666666666667,OK
-ajuste,a/instance_0001.txt,50,0.9,3.7777777777777777,OK
+ajuste,a/instance_0001.txt,40,0.9,3.7222222222222223,OK
+ajuste,a/instance_0001.txt,50,0.1,4.466666666666667,OK
+ajuste,a/instance_0001.txt,50,0.3,4.25,OK
+ajuste,a/instance_0001.txt,50,0.5,4.1875,OK
+ajuste,a/instance_0001.txt,50,0.7,4.1875,OK
+ajuste,a/instance_0001.txt,50,0.9,4.25,OK
 ajuste,a/instance_0003.txt,10,0.1,6.8,OK
 ajuste,a/instance_0003.txt,10,0.3,6.8,OK
 ajuste,a/instance_0003.txt,10,0.5,6.8,OK
@@ -33,219 +33,3 @@ ajuste,a/instance_0003.txt,20,0.1,6.8,OK
 ajuste,a/instance_0003.txt,20,0.3,6.8,OK
 ajuste,a/instance_0003.txt,20,0.5,6.8,OK
 ajuste,a/instance_0003.txt,20,0.7,6.8,OK
-ajuste,a/instance_0003.txt,20,0.9,6.8,OK
-ajuste,a/instance_0003.txt,30,0.1,5.714285714285714,OK
-ajuste,a/instance_0003.txt,30,0.3,5.714285714285714,OK
-ajuste,a/instance_0003.txt,30,0.5,5.714285714285714,OK
-ajuste,a/instance_0003.txt,30,0.7,5.714285714285714,OK
-ajuste,a/instance_0003.txt,30,0.9,5.714285714285714,OK
-ajuste,a/instance_0003.txt,40,0.1,6.8,OK
-ajuste,a/instance_0003.txt,40,0.3,6.8,OK
-ajuste,a/instance_0003.txt,40,0.5,6.8,OK
-ajuste,a/instance_0003.txt,40,0.7,6.8,OK
-ajuste,a/instance_0003.txt,40,0.9,6.8,OK
-ajuste,a/instance_0003.txt,50,0.1,6.8,OK
-ajuste,a/instance_0003.txt,50,0.3,6.8,OK
-ajuste,a/instance_0003.txt,50,0.5,6.8,OK
-ajuste,a/instance_0003.txt,50,0.7,6.8,OK
-ajuste,a/instance_0003.txt,50,0.9,6.8,OK
-ajuste,a/instance_0005.txt,10,0.1,N/A,Timeout após 60s
-ajuste,a/instance_0005.txt,10,0.3,N/A,Timeout após 60s
-ajuste,a/instance_0005.txt,10,0.5,N/A,Timeout após 60s
-ajuste,a/instance_0005.txt,10,0.7,N/A,Timeout após 60s
-ajuste,a/instance_0005.txt,10,0.9,N/A,Timeout após 60s
-ajuste,a/instance_0005.txt,20,0.1,N/A,Timeout após 60s
-ajuste,a/instance_0005.txt,20,0.3,N/A,Timeout após 60s
-ajuste,a/instance_0005.txt,20,0.5,N/A,Timeout após 60s
-ajuste,a/instance_0005.txt,20,0.7,N/A,Timeout após 60s
-ajuste,a/instance_0005.txt,20,0.9,N/A,Timeout após 60s
-ajuste,a/instance_0005.txt,30,0.1,N/A,Timeout após 60s
-ajuste,a/instance_0005.txt,30,0.3,N/A,Timeout após 60s
-ajuste,a/instance_0005.txt,30,0.5,N/A,Timeout após 60s
-ajuste,a/instance_0005.txt,30,0.7,N/A,Timeout após 60s
-ajuste,a/instance_0005.txt,30,0.9,N/A,Timeout após 60s
-ajuste,a/instance_0005.txt,40,0.1,N/A,Timeout após 60s
-ajuste,a/instance_0005.txt,40,0.3,N/A,Timeout após 60s
-ajuste,a/instance_0005.txt,40,0.5,N/A,Timeout após 60s
-ajuste,a/instance_0005.txt,40,0.7,N/A,Timeout após 60s
-ajuste,a/instance_0005.txt,40,0.9,N/A,Timeout após 60s
-ajuste,a/instance_0005.txt,50,0.1,N/A,Timeout após 60s
-ajuste,a/instance_0005.txt,50,0.3,N/A,Timeout após 60s
-ajuste,a/instance_0005.txt,50,0.5,N/A,Timeout após 60s
-ajuste,a/instance_0005.txt,50,0.7,N/A,Timeout após 60s
-ajuste,a/instance_0005.txt,50,0.9,N/A,Timeout após 60s
-ajuste,b/instance_0001.txt,10,0.1,N/A,Timeout após 60s
-ajuste,b/instance_0001.txt,10,0.3,N/A,Timeout após 60s
-ajuste,b/instance_0001.txt,10,0.5,N/A,Timeout após 60s
-ajuste,b/instance_0001.txt,10,0.7,N/A,Timeout após 60s
-ajuste,b/instance_0001.txt,10,0.9,N/A,Timeout após 60s
-ajuste,b/instance_0001.txt,20,0.1,N/A,Timeout após 60s
-ajuste,b/instance_0001.txt,20,0.3,N/A,Timeout após 60s
-ajuste,b/instance_0001.txt,20,0.5,N/A,Timeout após 60s
-ajuste,b/instance_0001.txt,20,0.7,N/A,Timeout após 60s
-ajuste,b/instance_0001.txt,20,0.9,N/A,Timeout após 60s
-ajuste,b/instance_0001.txt,30,0.1,N/A,Timeout após 60s
-ajuste,b/instance_0001.txt,30,0.3,N/A,Timeout após 60s
-ajuste,b/instance_0001.txt,30,0.5,N/A,Timeout após 60s
-ajuste,b/instance_0001.txt,30,0.7,N/A,Timeout após 60s
-ajuste,b/instance_0001.txt,30,0.9,N/A,Timeout após 60s
-ajuste,b/instance_0001.txt,40,0.1,N/A,Timeout após 60s
-ajuste,b/instance_0001.txt,40,0.3,N/A,Timeout após 60s
-ajuste,b/instance_0001.txt,40,0.5,N/A,Timeout após 60s
-ajuste,b/instance_0001.txt,40,0.7,N/A,Timeout após 60s
-ajuste,b/instance_0001.txt,40,0.9,N/A,Timeout após 60s
-ajuste,b/instance_0001.txt,50,0.1,N/A,Timeout após 60s
-ajuste,b/instance_0001.txt,50,0.3,N/A,Timeout após 60s
-ajuste,b/instance_0001.txt,50,0.5,N/A,Timeout após 60s
-ajuste,b/instance_0001.txt,50,0.7,N/A,Timeout após 60s
-ajuste,b/instance_0001.txt,50,0.9,N/A,Timeout após 60s
-ajuste,b/instance_0003.txt,10,0.1,24.583333333333332,OK
-ajuste,b/instance_0003.txt,10,0.3,24.583333333333332,OK
-ajuste,b/instance_0003.txt,10,0.5,24.583333333333332,OK
-ajuste,b/instance_0003.txt,10,0.7,24.583333333333332,OK
-ajuste,b/instance_0003.txt,10,0.9,24.583333333333332,OK
-ajuste,b/instance_0003.txt,20,0.1,24.583333333333332,OK
-ajuste,b/instance_0003.txt,20,0.3,24.583333333333332,OK
-ajuste,b/instance_0003.txt,20,0.5,24.583333333333332,OK
-ajuste,b/instance_0003.txt,20,0.7,24.583333333333332,OK
-ajuste,b/instance_0003.txt,20,0.9,24.583333333333332,OK
-ajuste,b/instance_0003.txt,30,0.1,24.583333333333332,OK
-ajuste,b/instance_0003.txt,30,0.3,24.583333333333332,OK
-ajuste,b/instance_0003.txt,30,0.5,24.583333333333332,OK
-ajuste,b/instance_0003.txt,30,0.7,24.583333333333332,OK
-ajuste,b/instance_0003.txt,30,0.9,24.583333333333332,OK
-ajuste,b/instance_0003.txt,40,0.1,24.583333333333332,OK
-ajuste,b/instance_0003.txt,40,0.3,24.583333333333332,OK
-ajuste,b/instance_0003.txt,40,0.5,24.583333333333332,OK
-ajuste,b/instance_0003.txt,40,0.7,24.583333333333332,OK
-ajuste,b/instance_0003.txt,40,0.9,24.583333333333332,OK
-ajuste,b/instance_0003.txt,50,0.1,24.583333333333332,OK
-ajuste,b/instance_0003.txt,50,0.3,24.583333333333332,OK
-ajuste,b/instance_0003.txt,50,0.5,24.583333333333332,OK
-ajuste,b/instance_0003.txt,50,0.7,24.583333333333332,OK
-ajuste,b/instance_0003.txt,50,0.9,24.583333333333332,OK
-ajuste,b/instance_0005.txt,10,0.1,N/A,Timeout após 60s
-ajuste,b/instance_0005.txt,10,0.3,N/A,Timeout após 60s
-ajuste,b/instance_0005.txt,10,0.5,N/A,Timeout após 60s
-ajuste,b/instance_0005.txt,10,0.7,N/A,Timeout após 60s
-ajuste,b/instance_0005.txt,10,0.9,N/A,Timeout após 60s
-ajuste,b/instance_0005.txt,20,0.1,N/A,Timeout após 60s
-ajuste,b/instance_0005.txt,20,0.3,N/A,Timeout após 60s
-ajuste,b/instance_0005.txt,20,0.5,N/A,Timeout após 60s
-ajuste,b/instance_0005.txt,20,0.7,N/A,Timeout após 60s
-ajuste,b/instance_0005.txt,20,0.9,N/A,Timeout após 60s
-ajuste,b/instance_0005.txt,30,0.1,N/A,Timeout após 60s
-ajuste,b/instance_0005.txt,30,0.3,N/A,Timeout após 60s
-ajuste,b/instance_0005.txt,30,0.5,N/A,Timeout após 60s
-ajuste,b/instance_0005.txt,30,0.7,N/A,Timeout após 60s
-ajuste,b/instance_0005.txt,30,0.9,N/A,Timeout após 60s
-ajuste,b/instance_0005.txt,40,0.1,N/A,Timeout após 60s
-ajuste,b/instance_0005.txt,40,0.3,N/A,Timeout após 60s
-ajuste,b/instance_0005.txt,40,0.5,N/A,Timeout após 60s
-ajuste,b/instance_0005.txt,40,0.7,N/A,Timeout após 60s
-ajuste,b/instance_0005.txt,40,0.9,N/A,Timeout após 60s
-ajuste,b/instance_0005.txt,50,0.1,N/A,Timeout após 60s
-ajuste,b/instance_0005.txt,50,0.3,N/A,Timeout após 60s
-ajuste,b/instance_0005.txt,50,0.5,N/A,Timeout após 60s
-ajuste,b/instance_0005.txt,50,0.7,N/A,Timeout após 60s
-ajuste,b/instance_0005.txt,50,0.9,N/A,Timeout após 60s
-ajuste,a/instance_0010.txt,10,0.1,N/A,Timeout após 60s
-ajuste,a/instance_0010.txt,10,0.3,3.3095238095238093,OK
-ajuste,a/instance_0010.txt,10,0.5,3.3095238095238093,OK
-ajuste,a/instance_0010.txt,10,0.7,3.3095238095238093,OK
-ajuste,a/instance_0010.txt,10,0.9,3.3095238095238093,OK
-ajuste,a/instance_0010.txt,20,0.1,N/A,Timeout após 60s
-ajuste,a/instance_0010.txt,20,0.3,N/A,Timeout após 60s
-ajuste,a/instance_0010.txt,20,0.5,N/A,Timeout após 60s
-ajuste,a/instance_0010.txt,20,0.7,N/A,Timeout após 60s
-ajuste,a/instance_0010.txt,20,0.9,N/A,Timeout após 60s
-ajuste,a/instance_0010.txt,30,0.1,N/A,Timeout após 60s
-ajuste,a/instance_0010.txt,30,0.3,N/A,Timeout após 60s
-ajuste,a/instance_0010.txt,30,0.5,N/A,Timeout após 60s
-ajuste,a/instance_0010.txt,30,0.7,N/A,Timeout após 60s
-ajuste,a/instance_0010.txt,30,0.9,N/A,Timeout após 60s
-ajuste,a/instance_0010.txt,40,0.1,N/A,Timeout após 60s
-ajuste,a/instance_0010.txt,40,0.3,N/A,Timeout após 60s
-ajuste,a/instance_0010.txt,40,0.5,N/A,Timeout após 60s
-ajuste,a/instance_0010.txt,40,0.7,N/A,Timeout após 60s
-ajuste,a/instance_0010.txt,40,0.9,N/A,Timeout após 60s
-ajuste,a/instance_0010.txt,50,0.1,N/A,Timeout após 60s
-ajuste,a/instance_0010.txt,50,0.3,N/A,Timeout após 60s
-ajuste,a/instance_0010.txt,50,0.5,N/A,Timeout após 60s
-ajuste,a/instance_0010.txt,50,0.7,N/A,Timeout após 60s
-ajuste,a/instance_0010.txt,50,0.9,N/A,Timeout após 60s
-ajuste,b/instance_0010.txt,10,0.1,N/A,Timeout após 60s
-ajuste,b/instance_0010.txt,10,0.3,N/A,Timeout após 60s
-ajuste,b/instance_0010.txt,10,0.5,N/A,Timeout após 60s
-ajuste,b/instance_0010.txt,10,0.7,N/A,Timeout após 60s
-ajuste,b/instance_0010.txt,10,0.9,N/A,Timeout após 60s
-ajuste,b/instance_0010.txt,20,0.1,N/A,Timeout após 60s
-ajuste,b/instance_0010.txt,20,0.3,N/A,Timeout após 60s
-ajuste,b/instance_0010.txt,20,0.5,N/A,Timeout após 60s
-ajuste,b/instance_0010.txt,20,0.7,N/A,Timeout após 60s
-ajuste,b/instance_0010.txt,20,0.9,N/A,Timeout após 60s
-ajuste,b/instance_0010.txt,30,0.1,N/A,Timeout após 60s
-ajuste,b/instance_0010.txt,30,0.3,N/A,Timeout após 60s
-ajuste,b/instance_0010.txt,30,0.5,N/A,Timeout após 60s
-ajuste,b/instance_0010.txt,30,0.7,N/A,Timeout após 60s
-ajuste,b/instance_0010.txt,30,0.9,N/A,Timeout após 60s
-ajuste,b/instance_0010.txt,40,0.1,N/A,Timeout após 60s
-ajuste,b/instance_0010.txt,40,0.3,N/A,Timeout após 60s
-ajuste,b/instance_0010.txt,40,0.5,N/A,Timeout após 60s
-ajuste,b/instance_0010.txt,40,0.7,N/A,Timeout após 60s
-ajuste,b/instance_0010.txt,40,0.9,N/A,Timeout após 60s
-ajuste,b/instance_0010.txt,50,0.1,N/A,Timeout após 60s
-ajuste,b/instance_0010.txt,50,0.3,N/A,Timeout após 60s
-ajuste,b/instance_0010.txt,50,0.5,N/A,Timeout após 60s
-ajuste,b/instance_0010.txt,50,0.7,N/A,Timeout após 60s
-ajuste,b/instance_0010.txt,50,0.9,N/A,Timeout após 60s
-ajuste,a/instance_0015.txt,10,0.1,N/A,Timeout após 60s
-ajuste,a/instance_0015.txt,10,0.3,N/A,Timeout após 60s
-ajuste,a/instance_0015.txt,10,0.5,N/A,Timeout após 60s
-ajuste,a/instance_0015.txt,10,0.7,N/A,Timeout após 60s
-ajuste,a/instance_0015.txt,10,0.9,N/A,Timeout após 60s
-ajuste,a/instance_0015.txt,20,0.1,N/A,Timeout após 60s
-ajuste,a/instance_0015.txt,20,0.3,N/A,Timeout após 60s
-ajuste,a/instance_0015.txt,20,0.5,N/A,Timeout após 60s
-ajuste,a/instance_0015.txt,20,0.7,N/A,Timeout após 60s
-ajuste,a/instance_0015.txt,20,0.9,N/A,Timeout após 60s
-ajuste,a/instance_0015.txt,30,0.1,N/A,Timeout após 60s
-ajuste,a/instance_0015.txt,30,0.3,N/A,Timeout após 60s
-ajuste,a/instance_0015.txt,30,0.5,N/A,Timeout após 60s
-ajuste,a/instance_0015.txt,30,0.7,N/A,Timeout após 60s
-ajuste,a/instance_0015.txt,30,0.9,N/A,Timeout após 60s
-ajuste,a/instance_0015.txt,40,0.1,N/A,Timeout após 60s
-ajuste,a/instance_0015.txt,40,0.3,N/A,Timeout após 60s
-ajuste,a/instance_0015.txt,40,0.5,N/A,Timeout após 60s
-ajuste,a/instance_0015.txt,40,0.7,N/A,Timeout após 60s
-ajuste,a/instance_0015.txt,40,0.9,N/A,Timeout após 60s
-ajuste,a/instance_0015.txt,50,0.1,N/A,Timeout após 60s
-ajuste,a/instance_0015.txt,50,0.3,N/A,Timeout após 60s
-ajuste,a/instance_0015.txt,50,0.5,N/A,Timeout após 60s
-ajuste,a/instance_0015.txt,50,0.7,N/A,Timeout após 60s
-ajuste,a/instance_0015.txt,50,0.9,N/A,Timeout após 60s
-ajuste,b/instance_0015.txt,10,0.1,N/A,Timeout após 60s
-ajuste,b/instance_0015.txt,10,0.3,N/A,Timeout após 60s
-ajuste,b/instance_0015.txt,10,0.5,N/A,Timeout após 60s
-ajuste,b/instance_0015.txt,10,0.7,N/A,Timeout após 60s
-ajuste,b/instance_0015.txt,10,0.9,N/A,Timeout após 60s
-ajuste,b/instance_0015.txt,20,0.1,N/A,Timeout após 60s
-ajuste,b/instance_0015.txt,20,0.3,N/A,Timeout após 60s
-ajuste,b/instance_0015.txt,20,0.5,N/A,Timeout após 60s
-ajuste,b/instance_0015.txt,20,0.7,N/A,Timeout após 60s
-ajuste,b/instance_0015.txt,20,0.9,N/A,Timeout após 60s
-ajuste,b/instance_0015.txt,30,0.1,N/A,Timeout após 60s
-ajuste,b/instance_0015.txt,30,0.3,N/A,Timeout após 60s
-ajuste,b/instance_0015.txt,30,0.5,N/A,Timeout após 60s
-ajuste,b/instance_0015.txt,30,0.7,N/A,Timeout após 60s
-ajuste,b/instance_0015.txt,30,0.9,N/A,Timeout após 60s
-ajuste,b/instance_0015.txt,40,0.1,N/A,Timeout após 60s
-ajuste,b/instance_0015.txt,40,0.3,N/A,Timeout após 60s
-ajuste,b/instance_0015.txt,40,0.5,N/A,Timeout após 60s
-ajuste,b/instance_0015.txt,40,0.7,N/A,Timeout após 60s
-ajuste,b/instance_0015.txt,40,0.9,N/A,Timeout após 60s
-ajuste,b/instance_0015.txt,50,0.1,N/A,Timeout após 60s
-ajuste,b/instance_0015.txt,50,0.3,N/A,Timeout após 60s
-ajuste,b/instance_0015.txt,50,0.5,N/A,Timeout após 60s
-ajuste,b/instance_0015.txt,50,0.7,N/A,Timeout após 60s
-ajuste,b/instance_0015.txt,50,0.9,N/A,Timeout após 60s
