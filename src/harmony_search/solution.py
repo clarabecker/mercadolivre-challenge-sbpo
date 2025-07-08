@@ -2,6 +2,7 @@ import random
 
 import numpy as np
 from pathlib import Path
+import timeit
 
 
 class Solution:
@@ -128,21 +129,4 @@ class Solution:
             for c in corredores_selecionados:
                 f.write(f"{c}\n")
 
-    @classmethod
-    def from_vector(cls, vector, instance):
-        """
-        Cria uma instância de Solution a partir de um vetor binário completo (x + y)
-        """
-        n_pedidos = len(instance.orders)
-        n_corredores = len(instance.aisles)
 
-        if len(vector) != n_pedidos + n_corredores:
-            raise ValueError("Tamanho do vetor não é compatível com a instância.")
-
-        x = np.array(vector[:n_pedidos], dtype=int)
-        y = np.array(vector[n_pedidos:], dtype=int)
-
-        sol = cls(instance)
-        sol.x = x
-        sol.y = y
-        return sol

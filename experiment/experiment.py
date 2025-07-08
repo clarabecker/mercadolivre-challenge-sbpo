@@ -27,7 +27,7 @@ instancias_validacao = [i for i in instancias_todas if i not in instancias_ajust
 
 instancias_para_executar = instancias_ajuste if modo == "ajuste" else instancias_validacao
 
-# === ARQUIVOS ===
+
 os.makedirs("../src/results", exist_ok=True)
 os.makedirs("../src/results/logs", exist_ok=True)
 csv_headers = ["Modo", "Instância"] + list(parametros.keys()) + ["OFV", "Status"]
