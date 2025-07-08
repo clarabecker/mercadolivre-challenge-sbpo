@@ -1,0 +1,14 @@
+
+--- STDERR ---
+Traceback (most recent call last):
+  File "/Users/lucas/Desktop/ml/mercadolivre-challenge-sbpo/experiment/../src/main.py", line 43, in <module>
+    sol = execute(
+  File "/Users/lucas/Desktop/ml/mercadolivre-challenge-sbpo/src/harmony_search/harmony_search.py", line 71, in execute
+    harmony_memory = iniciar_harmony_memory(n, hms, ofv, construtor_solucao, start, timeout)
+  File "/Users/lucas/Desktop/ml/mercadolivre-challenge-sbpo/src/harmony_search/harmony_search.py", line 47, in iniciar_harmony_memory
+    harmony_vector = construtor_solucao()
+  File "/Users/lucas/Desktop/ml/mercadolivre-challenge-sbpo/experiment/../src/main.py", line 39, in construtor_de_solucao
+    sol.construcao_inicial()
+  File "/Users/lucas/Desktop/ml/mercadolivre-challenge-sbpo/src/harmony_search/solution.py", line 61, in construcao_inicial
+    raise Exception("Sem solução viável inicial.")
+Exception: Sem solução viável inicial.

@@ -10,9 +10,9 @@ parametros = {
     "par": [0.1, 0.3, 0.5, 0.7, 0.9],
 }
 main_script = "../src/main.py"
-modo = "ajuste"
+modo = "validacao" #ajuste OU validacao
 
-melhor_config = {"hms": 30, "par": 0.7}
+melhor_config = {"hms": 30, "par": 0.9}
 
 diretorios = ['a', 'b']
 instancia_inicio = 1

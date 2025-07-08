@@ -19,7 +19,7 @@ def pitch_adjustment(harmony, harmony_memory, par):
             harmony[i] = 1 - harmony[i]
     return harmony
 
-def verificar_timeout(start, timeout=60):
+def verificar_timeout(start, timeout=900):
     current_time = timeit.default_timer() - start
     return current_time > timeout
 

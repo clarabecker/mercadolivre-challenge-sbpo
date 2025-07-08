@@ -1,0 +1,10 @@
+
+--- STDERR ---
+Traceback (most recent call last):
+  File "/Users/lucas/Desktop/ml/mercadolivre-challenge-sbpo/experiment/../src/main.py", line 27, in <module>
+    instance = Instance(full_instance_path)
+  File "/Users/lucas/Desktop/ml/mercadolivre-challenge-sbpo/src/harmony_search/instance.py", line 10, in __init__
+    self.read_input(path)
+  File "/Users/lucas/Desktop/ml/mercadolivre-challenge-sbpo/src/harmony_search/instance.py", line 17, in read_input
+    with open(path, 'r') as file:
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lucas/Desktop/ml/mercadolivre-challenge-sbpo/experiment/../src/../instances/b/instance_0017.txt'
